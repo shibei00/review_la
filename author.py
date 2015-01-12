@@ -2,7 +2,7 @@
 import MySQLdb
 
 if __name__=='__main__':
-    f = open('amazon-member-shortSummary.txt', 'r')
+    f = open('/misc/projdata4/info_fil/bshi/Data/review/bing_liu/amazon-member-shortSummary.txt', 'r')
     line_list = f.readlines()
     f.close()
     for i in xrange(0, len(line_list)):
@@ -13,8 +13,4 @@ if __name__=='__main__':
             review_number = int(t_info_list[2])
             print member_id, review_number
             if review_number >= 3:
-                
-                #save_into_db(t_info_list[0], t_info_list[1], t_info_list[2])
-    for line in line_list:
-        if line.strip()=='MEMBER INFO':
-            info_line = line_list
+                pass
