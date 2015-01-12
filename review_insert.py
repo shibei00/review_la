@@ -19,6 +19,7 @@ if __name__=='__main__':
         cur.close()
         for i in xrange(0, len(line_list)):
             info_list = [x.strip() for x in line_list[i].split('\t')]
+            print info_list
             try:
                 member_id = info_list[0]
                 product_id = info_list[1]
