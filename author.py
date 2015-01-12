@@ -6,7 +6,7 @@ if __name__=='__main__':
     f = open('/misc/projdata4/info_fil/bshi/Data/review/bing_liu/amazon-member-shortSummary.txt', 'r')
     line_list = f.readlines()
     f.close()
-    conn = MySQLdb.connect(host='seis10', user='bshi', passwd='20141031shib', db='bshi', charset='utf-8')
+    conn = MySQLdb.connect(host='seis10', user='bshi', passwd='20141031shib', db='bshi', charset='utf8')
     
     for i in xrange(0, len(line_list)):
         if line_list[i].strip()=='MEMBER INFO':
