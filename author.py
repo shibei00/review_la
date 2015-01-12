@@ -7,7 +7,7 @@ if __name__=='__main__':
     line_list = f.readlines()
     f.close()
     conn = MySQLdb.connect(host='seis10', user='bshi', passwd='20141031shib', db='bshi', charset='utf8')
-    
+    count = 0
     for i in xrange(0, len(line_list)):
         if line_list[i].strip()=='MEMBER INFO':
             info_line=line_list[i+1]
@@ -17,6 +17,7 @@ if __name__=='__main__':
                 member_name = t_info_list[1]
                 review_number = int(t_info_list[2])
                 if review_number >= 20:
+                    count += review_nubmer
                     cur = conn.cursor()
                     try:
                         i_sql = 'insert into member_info(member_id, member_name, review_number) values (%s, %s, %s)'
