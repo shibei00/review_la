@@ -1,5 +1,6 @@
 #-*- coding:utf-8 -*-
 import MySQLdb
+import traceback
 
 if __name__=='__main__':
     f = open('/misc/projdata4/info_fil/bshi/Data/review/bing_liu/amazon-member-shortSummary.txt', 'r')
@@ -9,8 +10,9 @@ if __name__=='__main__':
         if line_list[i].strip()=='MEMBER INFO':
             info_line=line_list[i+1]
             t_info_list = [x.strip() for x in info_line.split('\t')]
-            member_id = t_info_list[0]
-            review_number = int(t_info_list[2])
-            print member_id, review_number
-            if review_number >= 3:
-                pass
+            try:
+                member_id = t_info_list[0]
+                review_number = int(t_info_list[2])
+                print member_id, review_number                
+            except:
+                traceback.print_exc()
