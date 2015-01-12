@@ -4,7 +4,7 @@ import traceback
 import datetime
 
 if __name__=='__main__':
-    f = open('/misc/projdata4/info_fil/bshi/Data/review/bing_liu/reviewNews.txt', 'r')
+    f = open('/misc/projdata4/info_fil/bshi/Data/review/bing_liu/reviewsNew.txt', 'r')
     line_list = f.readlines()
     f.close()
     conn = MySQLdb.connect(host='seis10', user='bshi', passwd='20141031shib', db='bshi', charset='utf8')
