@@ -23,7 +23,7 @@ if __name__=='__main__':
     
     count = 0
 
-    while(len(result_row.keys()) < 10000):
+    while(len(result_row.keys()) < 20000):
         for p in seedproduct:
             count1 = 0
             if p in product_dict:
@@ -45,7 +45,7 @@ if __name__=='__main__':
                     if count1 > 200:
                         break
         seedproduct = []
-        if len(result_row.keys()) > 10000:
+        if len(result_row.keys()) > 20000:
             break
         else:
             print 'the number is:' + str(len(result_row.keys()))
