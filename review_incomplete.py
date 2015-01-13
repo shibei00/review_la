@@ -39,7 +39,7 @@ if __name__=='__main__':
         if len(result_row.keys()) > 12000:
             break
         else:
-            print 'the number is:' + str(len(result.keys()))
+            print 'the number is:' + str(len(result_row.keys()))
 
         count2 = 0
         for p in seedmember:
@@ -62,7 +62,7 @@ if __name__=='__main__':
                     if count2 > 100:
                         break
         seedmember = []
-        print 'the number is:' + str(len(result.keys()))
+        print 'the number is:' + str(len(result_row.keys()))
 
     try:
         for k in result_row.keys():
