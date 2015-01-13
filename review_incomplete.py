@@ -45,8 +45,7 @@ if __name__=='__main__':
                     if count1 > 200:
                         break
         seedproduct = []
-        if len(result_row.keys()) > 20000:
-            break
+
         else:
             print 'the number is:' + str(len(result_row.keys()))
 
