@@ -23,7 +23,7 @@ if __name__=='__main__':
     
     count = 0
 
-    while(len(result_row.keys()) < 12000):
+    while(len(result_row.keys()) < 10000):
         for p in seedproduct:
             count1 = 0
             if p in product_dict:
@@ -42,13 +42,9 @@ if __name__=='__main__':
                     seedmember.append(member_id)
                     print 'member_id:' + member_id
                     count1 += 1
-                    
-                    if count1 > 300:
+                    if count1 > 200:
                         break
         seedproduct = []
-
-        else:
-            print 'the number is:' + str(len(result_row.keys()))
 
         for p in seedmember:
             count2 = 0
