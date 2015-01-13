@@ -23,8 +23,9 @@ if __name__=='__main__':
                 cur2.execute(sql, (member_id,))
                 rows_member = cur2.fetchall()
                 if len(rows_member) > 10 and len(rows_member) < 100:
-                    result_row[row] = 1
+                    result_row[row[0]] = row
                     seedmember.append(member_id)
+                    print 'member_id:' + member_id
         seedproduct = []
         if len(result_row.keys()) > 20000:
             break
@@ -39,19 +40,21 @@ if __name__=='__main__':
                 cur2.execute(sql2, (product_id,))
                 rows_product = cur2.fetchall()
                 if len(rows_product) > 10 and len(rows_product) < 100:
-                    result_row[row] = 1
+                    result_row[row[0]] = row
                     seedproduct.append(product_id)
+                    print 'product_id:' + 'product_id'
         seedmember = []
 
 
-        try:
-            for row in result_row.keys():
-                cur2 = conn.cursor()
-                sql2 = 'insert into review_info_incomplete(member_id, product_id, date, rating, title, body) values(%s, %s, %s, %s, %s, %s)'
-                cur2.execute(sql2, (row[1], row[2], row[3], row[4], row[5], row[6]))
-        except:
-            conn.rollback()
-            traceback.print_exc()
+    try:
+        for k in result_row.keys():
+            row = result_row[k]
+            cur2 = conn.cursor()
+            sql2 = 'insert into review_info_incomplete(member_id, product_id, date, rating, title, body) values(%s, %s, %s, %s, %s, %s)'
+            cur2.execute(sql2, (row[1], row[2], row[3], row[4], row[5], row[6]))
+    except:
+        conn.rollback()
+        traceback.print_exc()
     conn.commit()
     conn.close()
 
