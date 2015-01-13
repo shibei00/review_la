@@ -54,7 +54,7 @@ if __name__=='__main__':
                 cur2 = conn.cursor()
                 cur2.execute(sql2, (product_id,))
                 rows_product = cur2.fetchall()
-                if len(rows_product) > 10:
+                if len(rows_product) > 5:
                     result_row[row[0]] = row
                     seedproduct.append(product_id)
                     print 'product_id:' + product_id
