@@ -5,6 +5,8 @@ if __name__=='__main__':
     seedproduct = ['0895260174',]
     seedmember = []
     result_row = {}
+    product_dict = {}
+    member_dict = {}
     
     conn = MySQLdb.connect(host='seis10', user='bshi', passwd='20141031shib', db='bshi', charset='utf8')
     sql = 'select * from review_info where member_id = %s'
@@ -12,9 +14,12 @@ if __name__=='__main__':
 
     count = 0
 
-    while(len(result_row.keys()) < 20000):
+    while(len(result_row.keys()) < 12000):
         count1 = 0
         for p in seedproduct:
+            if p in product_dict:
+                break
+            product_dict[p]=1
             cur = conn.cursor()
             cur.execute(sql2, (p,))
             rows = cur.fetchall()
@@ -31,11 +36,16 @@ if __name__=='__main__':
                     if count1 > 50:
                         break
         seedproduct = []
-        if len(result_row.keys()) > 20000:
+        if len(result_row.keys()) > 12000:
             break
+        else:
+            print 'the number is:' + str(len(result.keys()))
 
         count2 = 0
         for p in seedmember:
+            if p in member_dict:
+                break
+            member_dict[p] = 1
             cur = conn.cursor()
             cur.execute(sql, (p,))
             rows = cur.fetchall()
@@ -47,11 +57,12 @@ if __name__=='__main__':
                 if len(rows_product) > 10 and len(rows_product) < 100:
                     result_row[row[0]] = row
                     seedproduct.append(product_id)
-                    print 'product_id:' + 'product_id'
+                    print 'product_id:' + product_id
                     count2 += 1
                     if count2 > 100:
                         break
         seedmember = []
+        print 'the number is:' + str(len(result.keys()))
 
     try:
         for k in result_row.keys():
