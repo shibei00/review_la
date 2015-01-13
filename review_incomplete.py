@@ -2,7 +2,7 @@ import MySQLdb
 import traceback
 
 if __name__=='__main__':
-    seedproduct = ['0895260174',]
+    seedproduct = ['0895260174', '043935806X', 'B00008OWZG', '0439784549', '0525947647', 'B0000AQS0F', '0385504209']
     seedmember = []
     result_row = {}
     product_dict = {}
