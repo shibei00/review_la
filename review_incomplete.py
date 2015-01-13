@@ -33,7 +33,7 @@ if __name__=='__main__':
                     seedmember.append(member_id)
                     print 'member_id:' + member_id
                     count1 += 1
-                    if count1 > 100:
+                    if count1 > 200:
                         break
         seedproduct = []
         if len(result_row.keys()) > 12000:
@@ -59,7 +59,7 @@ if __name__=='__main__':
                     seedproduct.append(product_id)
                     print 'product_id:' + product_id
                     count2 += 1
-                    if count2 > 100:
+                    if count2 > 200:
                         break
         seedmember = []
         print 'the number is:' + str(len(result_row.keys()))
