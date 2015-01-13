@@ -13,6 +13,7 @@ if __name__=='__main__':
     count = 0
 
     while(len(result_row.keys()) < 20000):
+        count1 = 0
         for p in seedproduct:
             cur = conn.cursor()
             cur.execute(sql2, (p,))
@@ -26,10 +27,14 @@ if __name__=='__main__':
                     result_row[row[0]] = row
                     seedmember.append(member_id)
                     print 'member_id:' + member_id
+                    count1 += 1
+                    if count1 > 50:
+                        break
         seedproduct = []
         if len(result_row.keys()) > 20000:
             break
-            
+
+        count2 = 0
         for p in seedmember:
             cur = conn.cursor()
             cur.execute(sql, p)
@@ -43,8 +48,10 @@ if __name__=='__main__':
                     result_row[row[0]] = row
                     seedproduct.append(product_id)
                     print 'product_id:' + 'product_id'
+                    count2 += 1
+                    if count2 > 50:
+                        break
         seedmember = []
-
 
     try:
         for k in result_row.keys():
