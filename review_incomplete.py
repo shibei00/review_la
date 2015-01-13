@@ -14,7 +14,7 @@ if __name__=='__main__':
     sql = 'select * from review_info where member_id = %s'
     sql2 = 'select * from review_info where product_id = %s'
 
-    sql3 = 'select product_id, count(*) from review_info group by product_id order by count(*) desc limit 0, 30'
+    sql3 = 'select product_id, count(*) from review_info group by product_id order by count(*) desc limit 0, 50'
     cur = conn.cursor()
     cur.execute(sql3)
     rows = cur.fetchall()
@@ -23,7 +23,7 @@ if __name__=='__main__':
     
     count = 0
 
-    while(len(result_row.keys()) < 12000):
+    while(len(result_row.keys()) < 10000):
         for p in seedproduct:
             count1 = 0
             if p in product_dict:
@@ -45,7 +45,7 @@ if __name__=='__main__':
                     if count1 > 200:
                         break
         seedproduct = []
-        if len(result_row.keys()) > 12000:
+        if len(result_row.keys()) > 10000:
             break
         else:
             print 'the number is:' + str(len(result_row.keys()))
