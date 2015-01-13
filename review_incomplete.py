@@ -28,7 +28,7 @@ if __name__=='__main__':
                 cur2 = conn.cursor()
                 cur2.execute(sql, (member_id,))
                 rows_member = cur2.fetchall()
-                if len(rows_member) > 5:
+                if len(rows_member) > 3:
                     result_row[row[0]] = row
                     seedmember.append(member_id)
                     print 'member_id:' + member_id
@@ -54,7 +54,7 @@ if __name__=='__main__':
                 cur2 = conn.cursor()
                 cur2.execute(sql2, (product_id,))
                 rows_product = cur2.fetchall()
-                if len(rows_product) > 5:
+                if len(rows_product) > 3:
                     result_row[row[0]] = row
                     seedproduct.append(product_id)
                     print 'product_id:' + product_id
