@@ -15,8 +15,8 @@ if __name__=='__main__':
     count = 0
 
     while(len(result_row.keys()) < 12000):
-        count1 = 0
         for p in seedproduct:
+            count1 = 0
             if p in product_dict:
                 break
             product_dict[p]=1
@@ -41,8 +41,8 @@ if __name__=='__main__':
         else:
             print 'the number is:' + str(len(result_row.keys()))
 
-        count2 = 0
         for p in seedmember:
+            count2 = 0
             if p in member_dict:
                 break
             member_dict[p] = 1
