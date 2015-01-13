@@ -2,16 +2,25 @@ import MySQLdb
 import traceback
 
 if __name__=='__main__':
-    seedproduct = ['0895260174', '043935806X', 'B00008OWZG', '0439784549', '0525947647', 'B0000AQS0F', '0385504209']
+    
+    conn = MySQLdb.connect(host='seis10', user='bshi', passwd='20141031shib', db='bshi', charset='utf8')
+
+    seedproduct = []
     seedmember = []
     result_row = {}
     product_dict = {}
     member_dict = {}
     
-    conn = MySQLdb.connect(host='seis10', user='bshi', passwd='20141031shib', db='bshi', charset='utf8')
     sql = 'select * from review_info where member_id = %s'
     sql2 = 'select * from review_info where product_id = %s'
 
+    sql3 = 'select product_id, count(*) from review_info group by product_id order by count(*) desc limit 0, 30'
+    cur = conn.cursor()
+    cur.execute(sql3)
+    rows = cur.fetchall()
+    for r in rows:
+        seedproduct.append(r[0])
+    
     count = 0
 
     while(len(result_row.keys()) < 12000):
