@@ -37,7 +37,7 @@ if __name__=='__main__':
         count2 = 0
         for p in seedmember:
             cur = conn.cursor()
-            cur.execute(sql, p)
+            cur.execute(sql, (p,))
             rows = cur.fetchall()
             for row in rows():
                 product_id = row[2]
