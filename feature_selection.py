@@ -13,7 +13,7 @@ def insert_into_members(conn):
             count = row[1]
             cur2 = conn.cursor()
             sql2 = 'insert into member_info_incomplete(member_id, review_number) values(%s, %s)'
-            cur2.execute(sql, (member_id, str(count)))
+            cur2.execute(sql2, (member_id, str(count)))
             conn.commit()
     except:
         traceback.print_exc()
