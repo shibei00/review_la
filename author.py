@@ -16,7 +16,7 @@ if __name__=='__main__':
                 member_id = t_info_list[0]
                 member_name = t_info_list[1]
                 review_number = int(t_info_list[2])
-                if review_number >= 20:
+          #      if review_number >= 20:
                     count += review_nubmer
                     cur = conn.cursor()
                     try:
