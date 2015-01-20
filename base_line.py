@@ -42,7 +42,7 @@ def get_review_list(conn, review_list, member_review_dict):
         traceback.print_exc()
     
 if __name__=='__main__':
-    conn = MySQLdb.connect(host='127.0.0.1', port=9990, user='bshi', passwd='20141031shib', db='bshi', charset='utf8')
+    conn = MySQLdb.connect(host='seis10', port=3306, user='bshi', passwd='20141031shib', db='bshi', charset='utf8')
     member_list = []
     get_member_list(conn, member_list)
     review_list = []
