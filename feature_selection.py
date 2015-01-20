@@ -150,7 +150,7 @@ def extract_MNR(conn):
         max_review_num = cur2.fetchone()[2]
         for row in rows:
             member_id = row[1]
-            sql2 = 'select distinct count(*) from review_info_incomplete where member_id=%s group by member_id, date order by count(*) desc'
+            sql2 = 'select distinct member_id, date, count(*) from review_info_incomplete where member_id=%s group by member_id, date order by count(*) desc'
             cur3 = conn.cursor()
             cur3.execute(sql2, (member_id,))
             max_member_review_num = cur3.fetchone()[0]
@@ -557,7 +557,10 @@ def output_txt(conn):
             sql3 = 'select * from product_info_incomplete where product_id=%s'
             member_id = r[1]
             product_id = r[2]
-            body= r[6]
+            id = r[0]
+            sql4 = 'select body from review_info_incomplete_copy where id=%s'
+            cur.execute(sql4, (id,))
+            body= cur.fetchone()[0]
             DUP = r[7]
             EXT = r[8]
             DEV = r[9]
