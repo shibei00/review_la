@@ -249,7 +249,8 @@ if __name__=='__main__':
         BST_list_spam = []
         RFR_list_non = []
         RFR_list_spam = []
-        
+        print i
+        print spam_total_count
         for j in member_list:
             for k in member_review_dict[j]:
                 if review_label_list[k]==0:
