@@ -20,8 +20,8 @@ def get_mean_variance(t_list):
         print 'empty project'
         return 0, 0
     else:
-        mean = sum(t_list) / len(t_list)
-        variance = sum((mean-value)**2 for value in t_list) / len(t_list)
+        mean = sum(t_list) / float(len(t_list))
+        variance = sum((mean-value)**2 for value in t_list) / float(len(t_list))
         return mean, variance
         
 def get_review_list(conn, review_list, member_review_dict):
