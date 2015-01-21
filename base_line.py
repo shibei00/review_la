@@ -252,6 +252,7 @@ if __name__=='__main__':
         for j in member_list:
             for k in member_review_dict[j]:
                 print 'spam_total_count', str(spam_total_count), 'non_total_count', str(non_total_count)
+                print k
                 if review_label_list[k]==0:
                     n_m_non_dict[j] -= 1
                     non_total_count -= 1
@@ -341,6 +342,7 @@ if __name__=='__main__':
                 td_MNR_spam = pow(r_MNR_dict[k], pi_MNR_spam_1-1) * pow(1-r_MNR_dict[k], pi_MNR_spam_2-1)
                 td_BST_non = pow(r_BST_dict[k], pi_BST_non_1-1) * pow(1-r_BST_dict[k], pi_BST_non_2-1)
                 td_BST_spam = pow(r_BST_dict[k], pi_BST_spam_1-1) * pow(1-r_BST_dict[k], pi_CS_spam_2-1)
+                print r_RFR[k]
                 td_RFR_non = pow(r_RFR_dict[k], pi_RFR_non_1-1) * pow(1-r_RFR_dict[k], pi_RFR_non_2-1)
                 td_RFR_spam = pow(r_RFR_dict[k], pi_RFR_spam_1-1) * pow(1-r_RFR_dict[k], pi_RFR_spam_2-1)
                 prob_non = first_factor_non *  sf_DUP_non * sf_EXT_non * sf_DEV_non * sf_ETF_non * sf_RA_non * td_CS_non * td_MNR_non * td_BST_non * td_RFR_non
