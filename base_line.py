@@ -281,106 +281,106 @@ if __name__=='__main__':
                 first_factor_non= (n_m_non_dict[j] + 1) / float(n_m_count[j] -1 + 2)
                 first_factor_spam = (n_m_spam_dict[j] + 1) / float(n_m_count[j] - 1 + 2)
                 sf_DUP_non=0.0
-                if r_DUP_dict[r]==1:
+                if r_DUP_dict[k]==1:
                     sf_DUP_non = (r_non_is_DUP_count + 1) / float(non_total_count + 2)
                 else:
                     sf_DUP_non = (non_total_count - r_non_is_DUP_count + 1) / float(non_total_count + 2)
                 sf_DUP_spam=0.0
-                if r_DUP_dict[r]==1:
+                if r_DUP_dict[k]==1:
                     sf_DUP_spam = (r_spam_is_DUP_count + 1) / float(spam_total_count + 2)
                 else:
                     sf_DUP_spam = (spam_total_count - r_spam_is_DUP_count + 1) / float(spam_total_count + 2)
                     
                 sf_EXT_non=0.0
-                if r_EXT_dict[r]==1:
+                if r_EXT_dict[k]==1:
                     sf_EXT_non = (r_non_is_EXT_count + 1) / float(non_total_count + 2)
                 else:
                     sf_EXT_non = (non_total_count - r_non_is_EXT_count + 1) / float(non_total_count + 2)
                 sf_EXT_spam=0.0
-                if r_EXT_dict[r]==1:
+                if r_EXT_dict[k]==1:
                     sf_EXT_spam = (r_spam_is_EXT_count + 1) / float(spam_total_count + 2)
                 else:
                     sf_EXT_spam = (spam_total_count - r_spam_is_EXT_count + 1) / float(spam_total_count + 2)
                     
                 sf_DEV_non=0.0
-                if r_DEV_dict[r]==1:
+                if r_DEV_dict[k]==1:
                     sf_DEV_non = (r_non_is_DEV_count + 1) / float(non_total_count + 2)
                 else:
                     sf_DEV_non = (non_total_count - r_non_is_DEV_count + 1) / float(non_total_count + 2)
                 sf_DEV_spam=0.0
-                if r_DEV_dict[r]==1:
+                if r_DEV_dict[k]==1:
                     sf_DEV_spam = (r_spam_is_DEV_count + 1) / float(spam_total_count + 2)
                 else:
                     sf_DEV_spam = (spam_total_count - r_spam_is_DEV_count + 1) / float(spam_total_count + 2)
 
                 sf_ETF_non=0.0
-                if r_ETF_dict[r]==1:
+                if r_ETF_dict[k]==1:
                     sf_ETF_non = (r_non_is_ETF_count + 1) / float(non_total_count + 2)
                 else:
                     sf_ETF_non = (non_total_count - r_non_is_ETF_count + 1) / float(non_total_count + 2)
                 sf_ETF_spam=0.0
-                if r_ETF_dict[r]==1:
+                if r_ETF_dict[k]==1:
                     sf_ETF_spam = (r_spam_is_ETF_count + 1) / float(spam_total_count + 2)
                 else:
                     sf_ETF_spam = (spam_total_count - r_spam_is_ETF_count + 1) / float(spam_total_count + 2)
 
                 sf_RA_non=0.0
-                if r_RA_dict[r]==1:
+                if r_RA_dict[k]==1:
                     sf_RA_non = (r_non_is_RA_count + 1) / float(non_total_count + 2)
                 else:
                     sf_RA_non = (non_total_count - r_non_is_RA_count + 1) / float(non_total_count + 2)
                 sf_RA_spam=0.0
-                if r_RA_dict[r]==1:
+                if r_RA_dict[k]==1:
                     sf_RA_spam = (r_spam_is_RA_count + 1) / float(spam_total_count + 2)
                 else:
                     sf_RA_spam = (spam_total_count - r_spam_is_RA_count + 1) / float(spam_total_count + 2)
 
-                td_CS_non = pow(r_CS_dict[r], pi_CS_non_1-1) * pow(1-r_CS_dict[r], pi_CS_non_2-1)
-                td_CS_spam = pow(r_CS_dict[r], pi_CS_spam_1-1) * pow(1-r_CS_dict[r], pi_CS_spam_2-1)
-                td_MNR_non = pow(r_MNR_dict[r], pi_MNR_non_1-1) * pow(1-r_MNR_dict[r], pi_MNR_non_2-1)
-                td_MNR_spam = pow(r_MNR_dict[r], pi_MNR_spam_1-1) * pow(1-r_MNR_dict[r], pi_MNR_spam_2-1)
-                td_BST_non = pow(r_BST_dict[r], pi_BST_non_1-1) * pow(1-r_BST_dict[r], pi_BST_non_2-1)
-                td_BST_spam = pow(r_BST_dict[r], pi_BST_spam_1-1) * pow(1-r_BST_dict[r], pi_CS_spam_2-1)
-                td_RFR_non = pow(r_RFR_dict[r], pi_RFR_non_1-1) * pow(1-r_RFR_dict[r], pi_RFR_non_2-1)
-                td_RFR_spam = pow(r_RFR_dict[r], pi_RFR_spam_1-1) * pow(1-r_RFR_dict[r], pi_RFR_spam_2-1)
+                td_CS_non = pow(r_CS_dict[k], pi_CS_non_1-1) * pow(1-r_CS_dict[k], pi_CS_non_2-1)
+                td_CS_spam = pow(r_CS_dict[k], pi_CS_spam_1-1) * pow(1-r_CS_dict[k], pi_CS_spam_2-1)
+                td_MNR_non = pow(r_MNR_dict[k], pi_MNR_non_1-1) * pow(1-r_MNR_dict[k], pi_MNR_non_2-1)
+                td_MNR_spam = pow(r_MNR_dict[k], pi_MNR_spam_1-1) * pow(1-r_MNR_dict[k], pi_MNR_spam_2-1)
+                td_BST_non = pow(r_BST_dict[k], pi_BST_non_1-1) * pow(1-r_BST_dict[k], pi_BST_non_2-1)
+                td_BST_spam = pow(r_BST_dict[k], pi_BST_spam_1-1) * pow(1-r_BST_dict[k], pi_CS_spam_2-1)
+                td_RFR_non = pow(r_RFR_dict[k], pi_RFR_non_1-1) * pow(1-r_RFR_dict[k], pi_RFR_non_2-1)
+                td_RFR_spam = pow(r_RFR_dict[k], pi_RFR_spam_1-1) * pow(1-r_RFR_dict[k], pi_RFR_spam_2-1)
                 prob_non = first_factor_non *  sf_DUP_non * sf_EXT_non * sf_DEV_non * sf_ETF_non * sf_RA_non * td_CS_non * td_MNR_non * td_BST_non * td_RFR_non
                 prob_spam = first_factor_spam * sf_DUP_spam * sf_EXT_spam * sf_DEV_spam * sf_ETF_spam * sf_RA_spam * td_CS_spam * td_MNR_spam *  td_BST_spam * td_RFR_spam
                 if prob_non > prob_spam:
-                    review_label_list[r] = 0
+                    review_label_list[k] = 0
                     non_total_count += 1
                     n_m_non_dict[j] += 1
-                    if r_DUP_dict[r]==1:
+                    if r_DUP_dict[k]==1:
                         r_non_is_DUP_count += 1
-                    if r_EXT_dict[r]==1:
+                    if r_EXT_dict[k]==1:
                         r_non_is_EXT_count += 1
-                    if r_DEV_dict[r]==1:
+                    if r_DEV_dict[k]==1:
                         r_non_is_DEV_count += 1
-                    if r_ETF_dict[r]==1:
+                    if r_ETF_dict[k]==1:
                         r_non_is_ETF_count += 1
-                    if r_RA_dict[r]==1:
+                    if r_RA_dict[k]==1:
                         r_non_is_RA_count += 1
-                    CS_list_non.append(r_CS_dict[r])
-                    MNR_list_non.append(r_MNR_dict[r])
-                    BST_list_non.append(r_BST_dict[r])
-                    RFR_list_non.append(r_RFR_dict[r])
+                    CS_list_non.append(r_CS_dict[k])
+                    MNR_list_non.append(r_MNR_dict[k])
+                    BST_list_non.append(r_BST_dict[k])
+                    RFR_list_non.append(r_RFR_dict[k])
                 else:
-                    review_label_list[r] = 1
+                    review_label_list[k] = 1
                     n_m_spam_dict[j] += 1
                     spam_total_count += 1
-                    if r_DUP_dict[r]==1:
+                    if r_DUP_dict[k]==1:
                         r_spam_is_DUP_count += 1
-                    if r_EXT_dict[r]==1:
+                    if r_EXT_dict[k]==1:
                         r_spam_is_EXT_count += 1
-                    if r_DEV_dict[r]==1:
+                    if r_DEV_dict[k]==1:
                         r_spam_is_DEV_count += 1
-                    if r_ETF_dict[r]==1:
+                    if r_ETF_dict[k]==1:
                         r_spam_is_ETF_count += 1
-                    if r_RA_dict[r]==1:
+                    if r_RA_dict[k]==1:
                         r_spam_is_RA_count += 1
-                    CS_list_spam.append(r_CS_dict[r])
-                    MNR_list_spam.append(r_MNR_dict[r])
-                    BST_list_spam.append(r_BST_dict[r])
-                    RFR_list_spam.append(r_RFR_dict[r])
+                    CS_list_spam.append(r_CS_dict[k])
+                    MNR_list_spam.append(r_MNR_dict[k])
+                    BST_list_spam.append(r_BST_dict[k])
+                    RFR_list_spam.append(r_RFR_dict[k])
 
         if i > 250:
             mu_CS_non, gema_CS_non = get_mean_variance(CS_list_non)
