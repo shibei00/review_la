@@ -18,7 +18,7 @@ def get_member_list(conn, member_list):
 def get_mean_variance(t_list):
     if not t_list:
         print 'empty project'
-        return 0.0, 0.0
+        return 0.01, 0.01
     else:
         mean = sum(t_list) / float(len(t_list))
         variance = sum((mean-value)**2 for value in t_list) / float(len(t_list))
@@ -249,6 +249,7 @@ if __name__=='__main__':
     
     for i in xrange(0, n_max):
         print 'the %dth iteration' %(i,)
+        print 'spam_total_count', str(spam_total_count), 'non_total_count', str(non_total_count)        
         CS_list_non = []
         CS_list_spam = []
         MNR_list_non = []
@@ -259,7 +260,6 @@ if __name__=='__main__':
         RFR_list_spam = []
         for j in member_list:
             for k in member_review_dict[j]:
-                print 'spam_total_count', str(spam_total_count), 'non_total_count', str(non_total_count)
                 if review_label_list[k]==0:
                     n_m_non_dict[j] -= 1
                     non_total_count -= 1
