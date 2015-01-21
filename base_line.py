@@ -158,7 +158,7 @@ if __name__=='__main__':
         RFR = r_member[6]
         if RFR == 0:
             RFR = 0.01
-        if RFR = 1:
+        if RFR == 1:
             RFR = 0.99
         print member
         for r in r_list:
