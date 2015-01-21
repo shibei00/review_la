@@ -61,12 +61,12 @@ if __name__=='__main__':
     n_m_non_dict = {}
     n_m_spam_dict = {}
     n_m_count= {}
-    r_count = len(review_label_list)
+    r_count = len(review_label_list)-1
     non_count = 0
     spam_count = 0
     non_total_count = 0
     spam_total_count = 0
-    total_count = len(review_label_list)
+    total_count = len(review_label_list)-1
     r_DUP_dict = {}
     r_spam_is_DUP_count = 0
     r_non_is_DUP_count = 0
@@ -251,7 +251,7 @@ if __name__=='__main__':
         RFR_list_spam = []
         for j in member_list:
             for k in member_review_dict[j]:
-                print 'spam_total_count', str(spam_total_count)
+                print 'spam_total_count', str(spam_total_count), 'non_total_count', str(non_total_count)
                 if review_label_list[k]==0:
                     n_m_non_dict[j] -= 1
                     non_total_count -= 1
@@ -411,4 +411,3 @@ if __name__=='__main__':
             pi_RFR_non_2 = (1-mu_RFR_non) * (mu_RFR_non * (1 - mu_RFR_non) / gema_RFR_non - 1)
             pi_RFR_spam_1 = (mu_RFR_spam) * (mu_RFR_spam * (1 - mu_RFR_spam) / gema_RFR_spam - 1)
             pi_RFR_spam_2 = (1-mu_RFR_spam) * (mu_RFR_spam * (1 - mu_RFR_spam) / gema_RFR_spam - 1)
-            
