@@ -18,7 +18,7 @@ def get_member_list(conn, member_list):
 def get_mean_variance(t_list):
     if not t_list:
         print 'empty project'
-        return 0, 0
+        return 0.0, 0.0
     else:
         mean = sum(t_list) / float(len(t_list))
         variance = sum((mean-value)**2 for value in t_list) / float(len(t_list))
