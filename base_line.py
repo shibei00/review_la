@@ -17,6 +17,7 @@ def get_member_list(conn, member_list):
 
 def get_mean_variance(t_list):
     if not t_list:
+        print 'empty project'
         return 0, 0
     else:
         mean = sum(t_list) / len(t_list)
@@ -209,7 +210,6 @@ if __name__=='__main__':
         n_m_non_dict[member] = non_count
         n_m_spam_dict[member] = spam_count
         n_m_count[member] = n_count
-    print spam_total_count, non_total_count
 
     mu_CS_non, gema_CS_non = get_mean_variance(CS_list_non)
     mu_CS_spam, gema_CS_spam = get_mean_variance(CS_list_spam)
