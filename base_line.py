@@ -391,7 +391,7 @@ if __name__=='__main__':
                     RFR_list_spam.append(r_RFR_dict[k])
 
         if i > 250:
-            print len(CS_list_none), len(CS_list_spam)
+            print len(CS_list_non), len(CS_list_spam)
             mu_CS_non, gema_CS_non = get_mean_variance(CS_list_non)
             mu_CS_spam, gema_CS_spam = get_mean_variance(CS_list_spam)
             mu_MNR_non, gema_MNR_non = get_mean_variance(MNR_list_non)
