@@ -143,15 +143,23 @@ if __name__=='__main__':
         CS = r_member[3]
         if CS == 0:
             CS = 0.01
+        if CS == 1:
+            CS = 0.99
         MNR = r_member[4]
         if MNR == 0:
             MNR = 0.01
+        if MNR == 1:
+            MNR = 0.99
         BST = r_member[5]
         if BST == 0:
             BST = 0.01
+        if BST == 1:
+            BST = 0.99
         RFR = r_member[6]
         if RFR == 0:
             RFR = 0.01
+        if RFR = 1:
+            RFR = 0.99
         print member
         for r in r_list:
             sql = 'select * from review_info_incomplete where id=%s'
