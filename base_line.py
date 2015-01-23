@@ -41,6 +41,11 @@ def get_review_list(conn, review_list, member_review_dict):
                 member_review_dict[member_id].append(int(review_id))
     except:
         traceback.print_exc()
+
+def save_file(file_name, content):
+    f = open(file_name, 'w')
+    f.write(content)
+    f.close()
     
 if __name__=='__main__':
     conn = MySQLdb.connect(host='seis10', port=3306, user='bshi', passwd='20141031shib', db='bshi', charset='utf8')
@@ -410,12 +415,12 @@ if __name__=='__main__':
             pi_MNR_spam_1 = (mu_MNR_spam) * (mu_MNR_spam * (1 - mu_MNR_spam) / gema_MNR_spam - 1)
             pi_MNR_spam_2 = (1-mu_MNR_spam) * (mu_MNR_spam * (1 - mu_MNR_spam) / gema_MNR_spam - 1)
 
-            pi_BST_non_1 = mu_BST_non * (mu_BST_non * (1 - mu_BST_non) / gema_BST_non - 1)
-            pi_BST_non_2 = (1-mu_BST_non) * (mu_BST_non * (1 - mu_BST_non) / gema_BST_non - 1)
-            pi_BST_spam_1 = (mu_BST_spam) * (mu_BST_spam * (1 - mu_BST_spam) / gema_BST_spam - 1)
-            pi_BST_spam_2 = (1-mu_BST_spam) * (mu_BST_spam * (1 - mu_BST_spam) / gema_BST_spam - 1)
+            #pi_BST_non_1 = mu_BST_non * (mu_BST_non * (1 - mu_BST_non) / gema_BST_non - 1)
+            #pi_BST_non_2 = (1-mu_BST_non) * (mu_BST_non * (1 - mu_BST_non) / gema_BST_non - 1)
+            #pi_BST_spam_1 = (mu_BST_spam) * (mu_BST_spam * (1 - mu_BST_spam) / gema_BST_spam - 1)
+            #pi_BST_spam_2 = (1-mu_BST_spam) * (mu_BST_spam * (1 - mu_BST_spam) / gema_BST_spam - 1)
 
-            pi_RFR_non_1 = mu_RFR_non * (mu_RFR_non * (1 - mu_RFR_non) / gema_RFR_non - 1)
-            pi_RFR_non_2 = (1-mu_RFR_non) * (mu_RFR_non * (1 - mu_RFR_non) / gema_RFR_non - 1)
-            pi_RFR_spam_1 = (mu_RFR_spam) * (mu_RFR_spam * (1 - mu_RFR_spam) / gema_RFR_spam - 1)
-            pi_RFR_spam_2 = (1-mu_RFR_spam) * (mu_RFR_spam * (1 - mu_RFR_spam) / gema_RFR_spam - 1)
+            #pi_RFR_non_1 = mu_RFR_non * (mu_RFR_non * (1 - mu_RFR_non) / gema_RFR_non - 1)
+            #pi_RFR_non_2 = (1-mu_RFR_non) * (mu_RFR_non * (1 - mu_RFR_non) / gema_RFR_non - 1)
+            #pi_RFR_spam_1 = (mu_RFR_spam) * (mu_RFR_spam * (1 - mu_RFR_spam) / gema_RFR_spam - 1)
+            #pi_RFR_spam_2 = (1-mu_RFR_spam) * (mu_RFR_spam * (1 - mu_RFR_spam) / gema_RFR_spam - 1)
