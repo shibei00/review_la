@@ -3,6 +3,7 @@ import MySQLdb
 import traceback
 import json
 import datetime
+from nltk.tokenize import sent_tokenize
 
 insert_table_name = 'trip_advisor_info'
 
