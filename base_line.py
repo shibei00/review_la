@@ -435,14 +435,14 @@ if __name__=='__main__':
         for r in r_list:
             r_spam_score_dict[r] = spam_score
             
-    sorted_member_score = sorted(member_score_dict.items(), key=operator.itemgetter(1), reverse=True)
+    sorted_r_spam_score = sorted(r_spam_score_dict.items(), key=operator.itemgetter(1), reverse=True)
     for i in xrange(0, 3):
         percent = 5.0 * i / 100.0
-        t_len = len(sorted_member_score) * percent
-        start_list = sorted_member_score[0:t_len]
+        t_len = len(sorted_r_spam_score) * percent
+        start_list = sorted_r_spam_score[0:t_len]
         start_t_list = [x[0] + ' ' + x[1] for x in start_list]
         end_t_list = [x[0] + ' ' + x[1] for x in end_list]
-        end_list = sorted_member_score[-1 * t_len:]
+        end_list = sorted_r_spam_score[-1 * t_len:]
         start_content = '\n'.join(start_t_list)
         end_content = '\n'.join(end_t_list)
         save_file(str(i) + '_1.txt', start_content)
