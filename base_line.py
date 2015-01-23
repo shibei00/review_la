@@ -436,6 +436,7 @@ if __name__=='__main__':
             r_spam_score_dict[r] = spam_score
             
     sorted_r_spam_score = sorted(r_spam_score_dict.items(), key=operator.itemgetter(1), reverse=True)
+    print sorted_r_spam_score
     for i in xrange(0, 3):
         percent = 5.0 * (i+1) / 100.0
         t_len = len(sorted_r_spam_score) * percent
