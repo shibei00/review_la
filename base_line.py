@@ -2,6 +2,7 @@
 import MySQLdb
 import traceback
 import random
+import operator
 
 def get_member_list(conn, member_list):
     sql = 'select * from member_info_incomplete'
@@ -62,7 +63,7 @@ if __name__=='__main__':
         else:
             review_label_list.append(1)
     
-    n_max = 3000
+    n_max = 3
     n_m_non_dict = {}
     n_m_spam_dict = {}
     n_m_count= {}
@@ -405,10 +406,10 @@ if __name__=='__main__':
             mu_RFR_non, gema_RFR_non = get_mean_variance(RFR_list_non)
             mu_RFR_spam, gema_RFR_spam = get_mean_variance(RFR_list_spam)
 
-            pi_CS_non_1 = mu_CS_non * (mu_CS_non * (1 - mu_CS_non) / gema_CS_non - 1)
-            pi_CS_non_2 = (1-mu_CS_non) * (mu_CS_non * (1 - mu_CS_non) / gema_CS_non - 1)
-            pi_CS_spam_1 = (mu_CS_spam) * (mu_CS_spam * (1 - mu_CS_spam) / gema_CS_spam - 1)
-            pi_CS_spam_2 = (1-mu_CS_spam) * (mu_CS_spam * (1 - mu_CS_spam) / gema_CS_spam - 1)
+            #pi_CS_non_1 = mu_CS_non * (mu_CS_non * (1 - mu_CS_non) / gema_CS_non - 1)
+            #pi_CS_non_2 = (1-mu_CS_non) * (mu_CS_non * (1 - mu_CS_non) / gema_CS_non - 1)
+            #pi_CS_spam_1 = (mu_CS_spam) * (mu_CS_spam * (1 - mu_CS_spam) / gema_CS_spam - 1)
+            #pi_CS_spam_2 = (1-mu_CS_spam) * (mu_CS_spam * (1 - mu_CS_spam) / gema_CS_spam - 1)
 
             pi_MNR_non_1 = mu_MNR_non * (mu_MNR_non * (1 - mu_MNR_non) / gema_MNR_non - 1)
             pi_MNR_non_2 = (1-mu_MNR_non) * (mu_MNR_non * (1 - mu_MNR_non) / gema_MNR_non - 1)
@@ -424,3 +425,25 @@ if __name__=='__main__':
             #pi_RFR_non_2 = (1-mu_RFR_non) * (mu_RFR_non * (1 - mu_RFR_non) / gema_RFR_non - 1)
             #pi_RFR_spam_1 = (mu_RFR_spam) * (mu_RFR_spam * (1 - mu_RFR_spam) / gema_RFR_spam - 1)
             #pi_RFR_spam_2 = (1-mu_RFR_spam) * (mu_RFR_spam * (1 - mu_RFR_spam) / gema_RFR_spam - 1)
+
+    r_spam_score_dict = {}
+    for member in member_list:
+        r_list = member_review_dict[member]
+        r_count = len(r_list)
+        spam_count = n_m_spam_dict[member]
+        spam_score = float(spam_count) / float(r_count)
+        for r in r_list:
+            r_spam_score_dict[r] = spam_score
+            
+    sorted_member_score = sorted(member_score_dict.items(), key=operator.itemgetter(1), reverse=True)
+    for i in xrange(0, 3):
+        percent = 5.0 * i / 100.0
+        t_len = len(sorted_member_score) * percent
+        start_list = sorted_member_score[0:t_len]
+        start_t_list = [x[0] + ' ' + x[1] for x in start_list]
+        end_t_list = [x[0] + ' ' + x[1] for x in end_list]
+        end_list = sorted_member_score[-1 * t_len:]
+        start_content = '\n'.join(start_t_list)
+        end_content = '\n'.join(end_t_list)
+        save_file(str(i) + '_1.txt', start_content)
+        save_file(str(i) + '_2.txt', end_content)
