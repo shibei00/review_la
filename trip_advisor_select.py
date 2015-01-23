@@ -19,12 +19,12 @@ if __name__=='__main__':
     while(rows1 and rows2):
         for row in rows1:
             member_id = row[0]
-            cur.execute(sql3, member_id)
+            cur.execute(sql3, (member_id,))
             conn.commit()
 
         for row in rows2:
             product_id = row[0]
-            cur.execute(sql4, product_id)
+            cur.execute(sql4, (product_id,))
             conn.commit()
 
         cur.execute(sql)
