@@ -442,8 +442,8 @@ if __name__=='__main__':
         t_len = len(sorted_r_spam_score) * percent
         start_list = sorted_r_spam_score[0:int(t_len)]
         end_list = sorted_r_spam_score[int(-1 * t_len):]
-        start_t_list = [str(x[0]) + ' ' + str(x[1]) for x in start_list]
-        end_t_list = [str(x[0]) + ' ' + str(x[1]) for x in end_list]
+        start_t_list = [str(x[0]-1) + ' ' + str(x[1]) for x in start_list]
+        end_t_list = [str(x[0]-1) + ' ' + str(x[1]) for x in end_list]
         start_content = '\n'.join(start_t_list)
         end_content = '\n'.join(end_t_list)
         save_file(str(i) + '_1.txt', start_content)
