@@ -447,4 +447,4 @@ if __name__=='__main__':
         end_content = '\n'.join(end_t_list)
         save_file(str(i) + '_1.txt', start_content)
         save_file(str(i) + '_0.txt', end_content)
-    save_file('spamisity.txt', sorted_r_spam_score)
+    save_file('spamisity.txt', str(sorted_r_spam_score))
