@@ -28,6 +28,6 @@ if __name__=='__main__':
         date_time = datetime.datetime.strptime(json_data['date'], '%B %d, %Y')
         product_id = json_data['offering_id']
         if author_id:
-            cur.execute(sµql, (author_id, product_id, rating, title, body, date_time, help_ful_votes))
+            cur.execute(sql, (author_id, product_id, rating, title, body, date_time, help_ful_votes))
             conn.commit()
 
