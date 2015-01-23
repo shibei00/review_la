@@ -39,5 +39,5 @@ if __name__=='__main__':
     cur.execute(sql5)
     rows = cur.fetchall()
     for i in xrange(0, len(rows)):
-        id = row[0]
+        id = rows[i][0]
         cur.execute(sql6, (i+1, id))
