@@ -34,4 +34,10 @@ if __name__=='__main__':
         print 'The length of rows1:' + str(len(rows1))
         print 'The length of rows2:' + str(len(rows2))
 
-        
+    sql5 = 'select * from ' + new_table_name + ' order by id asc'
+    sql6 = 'update ' + new_table_name + ' set id = %s where id = %s'
+    cur.execute(sql5)
+    rows = cur.fetchall()
+    for i in xrange(0, len(rows)):
+        id = row[0]
+        cur.execute(sql6, (i+1, id))
