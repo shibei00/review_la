@@ -11,7 +11,7 @@ if __name__=='__main__':
     f_name = '/misc/projdata4/info_fil/bshi/Data/review/tripadvisor_jiweili/review.txt'
     f_lines = read_file(f_name)
     for line in f_lines:
-        json_data = json.load(f_lines)
+        json_data = json.load(line)
         rating = json_data['ratings']['overall']
         title = json_data['title']
         body = json_data['text']

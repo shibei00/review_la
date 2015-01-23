@@ -5,23 +5,26 @@ output_txtqUextract_is_JqUextract_p_BSTqU
 extract_CSqU
 extract_RAqUextract_MNRqUset_p_is_firstqUextract_DEVqeU	base_line]q(Umember_review_dictqU	td_CS_nonqU	mu_CS_nonqUDUPq UEXTq!Umu_MNR_spamq"Uget_member_listq#Urowq$Umemberq%U
 mu_BST_nonq&UCS_list_spamq'Ucurq(Un_m_non_dictq)U	non_countq*URAq+Ur_listq,Upi_MNR_non_1q-Upi_MNR_non_2q.Ugema_BST_spamq/Ufirst_factor_nonq0Usf_DEV_spamq1U	r_CS_dictq2Ureview_listq3U
-r_MNR_dictq4U	r_RA_dictq5Usql2q6Un_countq7Utd_MNR_spamq8Utotal_countq9Unon_total_countq:Upi_BST_non_2q;UtUpi_BST_non_1q<Umu_BST_spamq=Utd_BST_spamq>URFRq?Ureview_label_listq@Uprob_nonqAUDEVqBU
-td_BST_nonqCU
-r_DUP_dictqDUspam_total_countqEUBST_list_spamqFUpi_RFR_spam_2qGUpi_RFR_spam_1qHUMNRqIUmember_listqJU
-r_DEV_dictqKUMNR_list_spamqLUfirst_factor_spamqMU
-sf_DUP_nonqNUr_non_is_ETF_countqOUr_memberqPUr_non_is_RA_countqQUCS_list_nonqRUgema_BST_nonqSUsf_ETF_spamqTUgema_MNR_spamqUUkU
-sf_RA_spamqVUr_non_is_DUP_countqWUtd_RFR_spamqXUpi_BST_spam_1qYUpi_BST_spam_2qZUr_spam_is_RA_countq[Upi_CS_spam_2q\Upi_CS_spam_1q]UETFq^Ugema_CS_spamq_U
-sf_EXT_nonq`URFR_list_nonqaUBSTqbUsf_EXT_spamqcUr_spam_is_ETF_countqdU	sf_RA_nonqeU
-spam_countqfU
-sf_ETF_nonqgU
-r_BST_dictqhUgema_RFR_spamqiUMNR_list_nonqjU
-td_MNR_nonqkUCSqlURFR_list_spamqmUjUget_review_listqnUrUr_non_is_EXT_countqoUmu_RFR_spamqpU
-mu_CS_spamqqUr_spam_is_DUP_countqrUpi_MNR_spam_2qsUpi_MNR_spam_1qtU
-r_EXT_dictquUpi_RFR_non_2qvUpi_RFR_non_1qwUr_countqxUgema_RFR_nonqyUconnqzUBST_list_nonq{Ugema_CS_nonq|Ugema_MNR_nonq}Un_maxq~U
-mu_RFR_nonqU
-r_ETF_dictqÄUr_spam_is_EXT_countqÅU
-sf_DEV_nonqÇUr_non_is_DEV_countqÉUcur2qÑU
-mu_MNR_nonqÖUpi_CS_non_1qÜUpi_CS_non_2qáU
-td_CS_spamqàUn_m_spam_dictqâUsqlqäUget_mean_varianceqãU	prob_spamqåUiU
-r_RFR_dictqçU
-td_RFR_nonqéUsf_DUP_spamqèU	n_m_countqêUr_spam_is_DEV_countqëeu.
+r_MNR_dictq4U	r_RA_dictq5Usql2q6Un_countq7Ustart_t_listq8Utd_MNR_spamq9Utotal_countq:Unon_total_countq;Upi_BST_non_2q<UtUpi_BST_non_1q=Umu_BST_spamq>Utd_BST_spamq?URFRq@Ureview_label_listqAUprob_nonqBUDEVqCU
+td_BST_nonqDU
+r_DUP_dictqEU
+start_listqFUspam_total_countqGUBST_list_spamqHUpi_RFR_spam_2qIUpi_RFR_spam_1qJUMNRqKUmember_listqLU
+r_DEV_dictqMUsorted_r_spam_scoreqNUend_listqOUMNR_list_spamqPUfirst_factor_spamqQU
+sf_DUP_nonqRUr_non_is_ETF_countqSUr_memberqTUr_non_is_RA_countqUUCS_list_nonqVUgema_BST_nonqWUsf_ETF_spamqXUgema_MNR_spamqYUstart_contentqZU	save_fileq[UkU
+sf_RA_spamq\Ur_non_is_DUP_countq]Utd_RFR_spamq^Upi_BST_spam_1q_Upi_BST_spam_2q`Ur_spam_is_RA_countqaUpi_CS_spam_2qbUpi_CS_spam_1qcU
+spam_scoreqdUETFqeUgema_CS_spamqfU
+sf_EXT_nonqgURFR_list_nonqhUBSTqiUsf_EXT_spamqjUr_spam_is_ETF_countqkUt_lenqlU	sf_RA_nonqmU
+spam_countqnU
+sf_ETF_nonqoU
+r_BST_dictqpUgema_RFR_spamqqUMNR_list_nonqrU
+td_MNR_nonqsUCSqtU
+end_t_listquURFR_list_spamqvUjUget_review_listqwUrUr_non_is_EXT_countqxUmu_RFR_spamqyUend_contentqzU
+mu_CS_spamq{Ur_spam_is_DUP_countq|Upi_MNR_spam_2q}Upi_MNR_spam_1q~U
+r_EXT_dictqUpi_RFR_non_2qÄUpi_RFR_non_1qÅUr_countqÇUgema_RFR_nonqÉUconnqÑUBST_list_nonqÖUpercentqÜUgema_CS_nonqáUgema_MNR_nonqàUn_maxqâU
+mu_RFR_nonqäU
+r_ETF_dictqãUr_spam_is_EXT_countqåU
+sf_DEV_nonqçUr_non_is_DEV_countqéUcur2qèU
+mu_MNR_nonqêUpi_CS_non_1qëUpi_CS_non_2qíU
+td_CS_spamqìUn_m_spam_dictqîUsqlqïUget_mean_varianceqñU	prob_spamqóUiU
+r_RFR_dictqòU
+td_RFR_nonqôUsf_DUP_spamqöU	n_m_countqõUr_spam_is_DEV_countqúUr_spam_score_dictqùeu.
