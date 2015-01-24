@@ -596,6 +596,8 @@ if __name__=='__main__':
     #extract the feature of CS
     #extract_CS(conn)
     #extract the feature of MNR
+    extract_MNR(conn)
+    #extract the feature of BST
     #extract_BST(conn)
     #set_review_is_first(conn)
     #extract the feature of RFR
