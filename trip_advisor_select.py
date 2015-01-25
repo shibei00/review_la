@@ -1,12 +1,12 @@
 import MySQLdb
 import traceback
 
-new_table_name = 'trip_advisor_info_incomplete'
-member_threshold = 5
-product_threshold = 5
+new_table_name = 'trip_advisor_2w_info'
+member_threshold = 7
+product_threshold = 7
 
 if __name__=='__main__':
-    conn = MySQLdb.connect(host='seis10', user='bshi', passwd='20141031shib', db='bshi', charset='utf8')
+    conn = MySQLdb.connect(host='seis10', user='bshi', port=3306, passwd='20141031shib', db='bshi', charset='utf8')
     sql = 'select member_id, count(*) from ' + new_table_name + ' group by member_id having count(*) < ' + str(member_threshold)
     sql2 = 'select product_id, count(*) from ' + new_table_name + ' group by product_id having count(*) < ' + str(product_threshold)
     sql3 = 'delete from ' + new_table_name + ' where member_id=%s'
