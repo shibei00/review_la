@@ -13,9 +13,9 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 
 word_dict = {}
 stemmer = PorterStemmer()
-review_table = 'trip_advisor_5w_info'
-member_table = 'trip_advisor_5w_member'
-product_table = 'trip_advisor_5w_product'
+review_table = 'trip_advisor_2w_info'
+member_table = 'trip_advisor_2w_member'
+product_table = 'trip_advisor_2w_product'
 
 def insert_into_members(conn):
     sql = 'select distinct member_id, count(*) from ' + review_table+ ' group by member_id'
@@ -618,35 +618,55 @@ def output_txt(conn, file_name):
 if __name__=='__main__':
     conn = MySQLdb.connect(host='seis10.se.cuhk.edu.hk', port=3306, user='bshi', passwd='20141031shib', db='bshi', charset='utf8')
     #construct review_info_incomplete table
-    #insert_into_members(conn)
+    insert_into_members(conn)
+    print 'insert member completed'
     #preprocess body of the review
-    #preprocess(conn)
+    preprocess(conn)
+    print 'preprocess completed.'
     #extract the feature of CS
-    #extract_CS(conn)
+    extract_CS(conn)
+    print 'CS completed'
     #extract the feature of MNR
-    #extract_MNR(conn)
+    extract_MNR(conn)
+    print 'MNR completed'
     #extract the feature of BST
-    #extract_BST(conn)
-    #set_review_is_first(conn)
+    extract_BST(conn)
+    print 'BST completed'
+    set_review_is_first(conn)
+    print 'set review first completed'
     #extract the feature of RFR
-    #extract_RFR(conn)
+    extract_RFR(conn)
+    print 'RFR completed'
     #extract the feature of DUP
-    #extract_DUP(conn)
+    extract_DUP(conn)
+    print 'DUP completed'
     #extract the feature of EXT
-    #extract_EXT(conn)
+    extract_EXT(conn)
+    print 'EXT completed'
     #extract the feature of DEV
-    #extract_DEV(conn)
+    extract_DEV(conn)
+    print 'DEV completed'
     #extract the feature of ETF
-    #extract_ETF(conn)
-    #extract_RA(conn)
+    extract_ETF(conn)
+    print 'ETF completed'
+    extract_RA(conn)
+    print 'RA completed'
     #construct product_info_incomplete table
-    #insert_into_products(conn)
-    #extract_p_CS(conn)
-    #extract_p_MNR(conn)
-    #extract_p_BST(conn)
-    #set_m_is_first(conn)
-    #extract_p_RFR(conn)
-    #extract_is_J(conn)
-    #extract_is_burst(conn)
-    output_txt(conn, 'trip_advisor_5w')
+    insert_into_products(conn)
+    print 'insert product completed'
+    extract_p_CS(conn)
+    print 'p CS completed'
+    extract_p_MNR(conn)
+    print 'p MNR completed'
+    extract_p_BST(conn)
+    print 'p BST completed'
+    set_m_is_first(conn)
+    print 'set m first completed'
+    extract_p_RFR(conn)
+    print 'p RFR completed'
+    extract_is_J(conn)
+    print 'J completed'
+    extract_is_burst(conn)
+    print 'burst completed'
+    output_txt(conn, 'trip_advisor_2w')
     print str_process('I have eaten!. Nice to meet you.')
