@@ -2,8 +2,8 @@ import MySQLdb
 import traceback
 
 new_table_name = 'trip_advisor_2w_info'
-member_threshold = 7
-product_threshold = 7
+member_threshold = 8
+product_threshold = 8
 
 if __name__=='__main__':
     conn = MySQLdb.connect(host='seis10', user='bshi', port=3306, passwd='20141031shib', db='bshi', charset='utf8')
