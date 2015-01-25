@@ -572,8 +572,8 @@ def output_txt(conn, file_name):
             member_id = r['member_id']
             product_id = r['product_id']
             id = r['id']
-            raw_body = r['body']
-            post_body= r['post_body']
+            raw_body = r['body'].replace('\n', ' ').replace('\r', '')
+            post_body= r['post_body'].replace('\n', ' ').replace('\r', '')
             DUP = r['DUP']
             EXT = r['EXT']
             DEV = r['DEV']
@@ -616,7 +616,7 @@ def output_txt(conn, file_name):
     post_f.close()
     
 if __name__=='__main__':
-    conn = MySQLdb.connect(host='127.0.0.1', port=9990, user='bshi', passwd='20141031shib', db='bshi', charset='utf8')
+    conn = MySQLdb.connect(host='seis10.se.cuhk.edu.hk', port=9990, user='bshi', passwd='20141031shib', db='bshi', charset='utf8')
     #construct review_info_incomplete table
     #insert_into_members(conn)
     #preprocess body of the review
