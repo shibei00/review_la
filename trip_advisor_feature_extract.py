@@ -616,7 +616,7 @@ def output_txt(conn, file_name):
     post_f.close()
     
 if __name__=='__main__':
-    conn = MySQLdb.connect(host='seis10.se.cuhk.edu.hk', port=9990, user='bshi', passwd='20141031shib', db='bshi', charset='utf8')
+    conn = MySQLdb.connect(host='seis10.se.cuhk.edu.hk', port=3306, user='bshi', passwd='20141031shib', db='bshi', charset='utf8')
     #construct review_info_incomplete table
     #insert_into_members(conn)
     #preprocess body of the review
