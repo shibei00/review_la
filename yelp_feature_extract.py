@@ -13,9 +13,9 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 
 word_dict = {}
 stemmer = PorterStemmer()
-review_table = 'yelp_5w_info'
-member_table = 'yelp_5w_member'
-product_table = 'yelp_5w_product'
+review_table = 'yelp_2w_info'
+member_table = 'yelp_2w_member'
+product_table = 'yelp_2w_product'
 
 def insert_into_members(conn):
     sql = 'select distinct member_id, count(*) from ' + review_table+ ' group by member_id'
