@@ -4,14 +4,18 @@ import traceback
 import random
 import operator
 
+review_table = 'trip_advisor_2w_info'
+member_table = 'trip_advisor_2w_member'
+product_table = 'trip_advisor_2w_product'
+
 def get_member_list(conn, member_list):
-    sql = 'select * from member_info_incomplete'
+    sql = 'select * from ' + member_table
     try:
-        cur = conn.cursor()
+        cur = conn.cursor(MySQLdb.cursors.DictCursor)
         cur.execute(sql)
         rows = cur.fetchall()
         for r in rows:
-            member_id = r[1]
+            member_id = r['member_id']
             member_list.append(member_id)
     except:
         traceback.print_exc()
@@ -26,14 +30,14 @@ def get_mean_variance(t_list):
         return mean, variance
         
 def get_review_list(conn, review_list, member_review_dict):
-    sql = 'select * from review_info_incomplete'
+    sql = 'select * from ' + review_table
     try:
-        cur = conn.cursor()
+        cur = conn.cursor(MySQLdb.cursors.DictCursor)
         cur.execute(sql)
         rows = cur.fetchall()
         for r in rows:
-            review_id = r[0]
-            member_id = r[1]
+            review_id = r['id']
+            member_id = r['member_id']
             review_list.append(review_id)
             if member_id in member_review_dict:
                 member_review_dict[member_id].append(int(review_id))
@@ -142,40 +146,40 @@ if __name__=='__main__':
         n_count = len(r_list)
         non_count = 0
         spam_count = 0
-        sql2 = 'select * from member_info_incomplete where member_id=%s'
-        cur2 = conn.cursor()
+        sql2 = 'select * from ' + member_table + ' where member_id=%s'
+        cur2 = conn.cursor(MySQLdb.cursors.DictCursor)
         cur2.execute(sql2, (member,))
         r_member=cur2.fetchone()
-        CS = r_member[3]
+        CS = r_member['CS']
         if CS == 0:
             CS = 0.01
         if CS == 1:
             CS = 0.99
-        MNR = r_member[4]
+        MNR = r_member['MNR']
         if MNR == 0:
             MNR = 0.01
         if MNR == 1:
             MNR = 0.99
-        BST = r_member[5]
+        BST = r_member['BST']
         if BST == 0:
             BST = 0.01
         if BST == 1:
             BST = 0.99
-        RFR = r_member[6]
+        RFR = r_member['RFR']
         if RFR == 0:
             RFR = 0.01
         if RFR == 1:
             RFR = 0.99
         for r in r_list:
-            sql = 'select * from review_info_incomplete where id=%s'
-            cur =  conn.cursor()
+            sql = 'select * from ' + review_table + ' where id=%s'
+            cur =  conn.cursor(MySQLdb.cursors.DictCursor)
             cur.execute(sql, (r,))
             row = cur.fetchone()
-            DUP = row[7]
-            EXT = row[8]
-            DEV = row[9]
-            ETF = row[10]
-            RA = row[11]
+            DUP = row['DUP']
+            EXT = row['EXT']
+            DEV = row['DEV']
+            ETF = row['ETF']
+            RA = row['RA']
             r_DUP_dict[r] = DUP
             r_EXT_dict[r] = EXT
             r_DEV_dict[r] = DEV
