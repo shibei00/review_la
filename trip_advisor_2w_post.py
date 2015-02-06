@@ -13,7 +13,23 @@ if __name__=='__main__':
     conn = MySQLdb.connect(host='seis10', user='bshi', passwd='20141031shib', db='bshi', charset='utf8')
     f_name = '/misc/projdata4/info_fil/bshi/Code/review_lda/trip_advisor_2w_raw_new.txt'
     f_lines = read_file(f_name)
-    sql = 'update trip_advisor_2w_info set is_exist=1 where member_id=%s and product_id=%s and rating=%s and helpful_score=%s and DUP=%s and EXT=%s and DEV=%s and ETF=%s and RA=%s'
+    sql = 'select * from trip_advisor_2w_info'
+    cur = conn.cursor()
+    cur.execute(sql)
+    rows = cur.fetchall()
+    for i in xrange(0, len(f_lines)):
+        if i % 2 == 0:
+            j = i / 2
+            r = rows[j]
+            member_id = r[1]
+            product_id = r[2]
+            t_list = f_lines[i].strip('\t')
+            if member_id==t_list[0] and product_id==t_list[1]:
+                pass
+            else:
+                print r[0]
+                break
+    '''sql = 'update trip_advisor_2w_info set is_exist=1 where member_id=%s and product_id=%s and rating=%s and helpful_score=%s and DUP=%s and EXT=%s and DEV=%s and ETF=%s and RA=%s'
     for line in f_lines:
         t_list = line.split('\t')
         if len(t_list) > 1:
@@ -33,7 +49,7 @@ if __name__=='__main__':
     sql2 = 'delete from trip_advisor_2w_info where is_exist=0'
     cur2 = conn.cursor()
     cur2.execute(sql2)
-    conn.commit()
+    conn.commit()'''
 
     cur = conn.cursor()
     sql5 = 'select * from trip_advisor_2w_info order by id asc'
