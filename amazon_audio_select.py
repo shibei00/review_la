@@ -2,8 +2,8 @@ import MySQLdb
 import traceback
 
 new_table_name = 'amazon_audio_test_info'
-member_threshold = 1
-product_threshold = 1
+member_threshold = 2
+product_threshold = 2
 
 if __name__=='__main__':
     conn = MySQLdb.connect(host='seis10', user='bshi', port=3306, passwd='20141031shib', db='bshi', charset='utf8')
