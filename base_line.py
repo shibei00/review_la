@@ -501,16 +501,19 @@ if __name__=='__main__':
             
     r_spam_score_dict = {}
     member_content = ''
+    member_score_dict = {}
+    product_score_dict = {}
     for member in member_list:
         r_list = member_review_dict[member]
         r_count = len(r_list)
         spam_count = n_m_spam_dict[member]
         spam_score = float(spam_count) / float(r_count)
+        member_score_dict[member] = spam_score
         member_list = [member, str(spam_score), str(r_count)]
         member_content += '\t'.join(member_list) +'\t' +' '.join([str(x-1) for x in r_list]) + '\n'
         for r in r_list:
             r_spam_score_dict[r] = spam_score
-
+    
     product_content = ''
     for product in product_review_dict.keys():
         r_list = product_review_dict[product]
@@ -519,11 +522,36 @@ if __name__=='__main__':
         for r in r_list:
             if review_label_list[r]==1:
                 spam_count += 1
-        spam_score = float(spam_count) / float(r_count)
+                spam_score = float(spam_count) / float(r_count)
+        product_score_dict[product] = spam_score
         product_list = [product, str(spam_score), str(r_count)]
-        product_content += '\t'.join(member_list) +'\t' +' '.join([str(x-1) for x in r_list]) + '\n'
+        product_content += '\t'.join(product_list) +'\t' +' '.join([str(x-1) for x in r_list]) + '\n'
         
-            
+    sorted_member_list = sorted(member_score_dict.items(), key=operator.itemgetter(1), reverse=True)
+    sorted_product_list = sorted(product_score_dict.items(), key=operator.itemgetter(1), reverse=True)
+    for item in sorted_member_list:
+        member = item[0]
+        r_list = member_review_dict[member]
+        r_count = len(r_list)
+        spam_count = n_m_spam_dict[member]
+        spam_score = float(spam_count) / float(r_count)
+        member_score_dict[member] = spam_score
+        member_list = [member, str(spam_score), str(r_count)]
+        member_content += '\t'.join(member_list) +'\t' +' '.join([str(x-1) for x in r_list]) + '\n'
+        
+    for item in sorted_product_list:
+        product = item[0]
+        r_list = product_review_dict[product]
+        r_count = len(r_list)
+        spam_count = 0
+        for r in r_list:
+            if review_label_list[r]==1:
+                spam_count += 1
+                spam_score = float(spam_count) / float(r_count)
+        product_score_dict[product] = spam_score
+        product_list = [product, str(spam_score), str(r_count)]
+        product_content += '\t'.join(product_list) +'\t' +' '.join([str(x-1) for x in r_list]) + '\n'
+        
     sorted_r_spam_score = sorted(r_spam_score_dict.items(), key=operator.itemgetter(1), reverse=True)
     for i in xrange(0, 3):
         percent = 5.0 * (i+1) / 100.0
