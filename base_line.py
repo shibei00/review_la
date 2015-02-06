@@ -249,10 +249,10 @@ if __name__=='__main__':
     pi_CS_non_2 = (1-mu_CS_non) * (mu_CS_non * (1 - mu_CS_non) / gema_CS_non - 1)
     pi_CS_spam_1 = (mu_CS_spam) * (mu_CS_spam * (1 - mu_CS_spam) / gema_CS_spam - 1)
     pi_CS_spam_2 = (1-mu_CS_spam) * (mu_CS_spam * (1 - mu_CS_spam) / gema_CS_spam - 1)
-    #pi_CS_non_1 = 0.5
-    #pi_CS_non_2 = 2
-    #pi_CS_spam_1 = 3.0
-    #pi_CS_spam_2 = 1.0
+    pi_CS_non_1 = 0.1
+    pi_CS_non_2 = 0.7
+    pi_CS_spam_1 = 3.0
+    pi_CS_spam_2 = 1.0
     print 'non_CS: %f, %f' % (pi_CS_non_1, pi_CS_non_2)
     print 'spam_CS: %f, %f' % (pi_CS_spam_1, pi_CS_spam_2)
 
@@ -260,10 +260,10 @@ if __name__=='__main__':
     pi_MNR_non_2 = (1-mu_MNR_non) * (mu_MNR_non * (1 - mu_MNR_non) / gema_MNR_non - 1)
     pi_MNR_spam_1 = (mu_MNR_spam) * (mu_MNR_spam * (1 - mu_MNR_spam) / gema_MNR_spam - 1)
     pi_MNR_spam_2 = (1-mu_MNR_spam) * (mu_MNR_spam * (1 - mu_MNR_spam) / gema_MNR_spam - 1)
-    #pi_MNR_non_1 = 1.0
-    #pi_MNR_non_2 = 3.0
-    #pi_MNR_spam_1 = 3.0
-    #pi_MNR_spam_2 = 1.0
+    pi_MNR_non_1 = 0.1
+    pi_MNR_non_2 = 0.7
+    pi_MNR_spam_1 = 3.0
+    pi_MNR_spam_2 = 1.0
     print 'non_MNR: %f, %f' % (pi_MNR_non_1, pi_MNR_non_2)
     print 'spam_MNR: %f, %f' % (pi_MNR_spam_1, pi_MNR_spam_2)
     
@@ -271,10 +271,10 @@ if __name__=='__main__':
     pi_BST_non_2 = (1-mu_BST_non) * (mu_BST_non * (1 - mu_BST_non) / gema_BST_non - 1)
     pi_BST_spam_1 = (mu_BST_spam) * (mu_BST_spam * (1 - mu_BST_spam) / gema_BST_spam - 1)
     pi_BST_spam_2 = (1-mu_BST_spam) * (mu_BST_spam * (1 - mu_BST_spam) / gema_BST_spam - 1)
-    #pi_BST_non_1 = 1.0
-    #pi_BST_non_2 = 3.0
-    #pi_BST_spam_1 = 3.0
-    #pi_BST_spam_2 = 1.0
+    pi_BST_non_1 = 0.1
+    pi_BST_non_2 = 0.7
+    pi_BST_spam_1 = 3.0
+    pi_BST_spam_2 = 1.0
     print 'non_BST: %f, %f' % (pi_BST_non_1, pi_BST_non_2)
     print 'spam_BST: %f, %f' % (pi_BST_spam_1, pi_BST_spam_2)
     
@@ -282,10 +282,10 @@ if __name__=='__main__':
     pi_RFR_non_2 = (1-mu_RFR_non) * (mu_RFR_non * (1 - mu_RFR_non) / gema_RFR_non - 1)
     pi_RFR_spam_1 = (mu_RFR_spam) * (mu_RFR_spam * (1 - mu_RFR_spam) / gema_RFR_spam - 1)
     pi_RFR_spam_2 = (1-mu_RFR_spam) * (mu_RFR_spam * (1 - mu_RFR_spam) / gema_RFR_spam - 1)
-    #pi_RFR_non_1 = 1.0
-    #pi_RFR_non_2 = 3.0
-    #pi_RFR_spam_1 = 3.0
-    #pi_RFR_spam_2 = 1.0
+    pi_RFR_non_1 = 0.1
+    pi_RFR_non_2 = 0.7
+    pi_RFR_spam_1 = 3.0
+    pi_RFR_spam_2 = 1.0
     print 'non_RFR: %f, %f' % (pi_RFR_non_1, pi_RFR_non_2)
     print 'spam_RFR: %f, %f' % (pi_RFR_spam_1, pi_RFR_spam_2)
     
