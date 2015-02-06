@@ -443,7 +443,7 @@ if __name__=='__main__':
                     BST_list_spam.append(r_BST_dict[k])
                     RFR_list_spam.append(r_RFR_dict[k])
 
-        if i > 2500:
+        if i > 250:
             mu_CS_non, gema_CS_non = get_mean_variance(CS_list_non)
             mu_CS_spam, gema_CS_spam = get_mean_variance(CS_list_spam)
             print 'u_CS_non: %f, %f' %(mu_CS_non, gema_CS_non)
