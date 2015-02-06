@@ -668,5 +668,5 @@ if __name__=='__main__':
     print 'J completed'
     extract_is_burst(conn)
     print 'burst completed'
-    output_txt(conn, 'trip_advisor_2w')
+    output_txt(conn, 'amazon_audio_2w')
     print str_process('I have eaten!. Nice to meet you.')
