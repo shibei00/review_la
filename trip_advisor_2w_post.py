@@ -23,7 +23,7 @@ if __name__=='__main__':
             r = rows[j]
             member_id = r[1]
             product_id = r[2]
-            t_list = f_lines[i].strip('\t')
+            t_list = (f_lines[i]).strip('\t')
             if member_id==t_list[0] and product_id==t_list[1]:
                 pass
             else:
