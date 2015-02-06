@@ -13,9 +13,9 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 
 word_dict = {}
 stemmer = PorterStemmer()
-review_table = 'amazon_audio_2w_info'
-member_table = 'amazon_audio_2w_member'
-product_table = 'amazon_audio_2w_product'
+review_table = 'amazon_audio_3w_info'
+member_table = 'amazon_audio_3w_member'
+product_table = 'amazon_audio_3w_product'
 
 def insert_into_members(conn):
     sql = 'select distinct member_id, count(*) from ' + review_table+ ' group by member_id'
@@ -668,5 +668,5 @@ if __name__=='__main__':
     print 'J completed'
     extract_is_burst(conn)
     print 'burst completed'
-    output_txt(conn, 'amazon_audio_2w')
+    output_txt(conn, 'amazon_audio_3w')
     print str_process('I have eaten!. Nice to meet you.')
