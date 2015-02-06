@@ -506,7 +506,7 @@ if __name__=='__main__':
         r_count = len(r_list)
         spam_count = n_m_spam_dict[member]
         spam_score = float(spam_count) / float(r_count)
-        member_list = [member, spam_score, r_count]
+        member_list = [member, str(spam_score), str(r_count)]
         member_content += '\t'.join(member_list) +'\t' +' '.join([str(x-1) for x in r_list]) + '\n'
         for r in r_list:
             r_spam_score_dict[r] = spam_score
@@ -520,7 +520,7 @@ if __name__=='__main__':
             if review_label_list[r]==1:
                 spam_count += 1
         spam_score = float(spam_count) / float(r_count)
-        product_list = [product, spam_score, r_count]
+        product_list = [product, str(spam_score), str(r_count)]
         product_content += '\t'.join(member_list) +'\t' +' '.join([str(x-1) for x in r_list]) + '\n'
         
             
