@@ -28,10 +28,13 @@ def select_review(conn, product_id):
     conn.commit()
     r_list = cur.fetchall()
     return r_list
-    
-def insert_review(conn):
-    pass
-    
+
+def insert_review(conn, member_id, product_id, rating, title, body, date, help_score):
+    sql = 'insert into ' + insert_table_name + '(member_id, product_id, rating, title, body, date, helpful_score) values(%s, %s, %s, %s, %s, %s, %s)'
+    cur = conn.cursor()
+    cur.execute(sql, (member_id, product_id, rating, title, body, date, help_score))
+    conn.commit()
+
 if __name__=='__main__':
     f_name = '/misc/projdata4/info_fil/bshi/Data/review/bing_liu/productInfoXML-reviewed-AudioCDs.txt'
     conn = MySQLdb.connect(host='seis10', user='bshi', passwd='20141031shib', db='bshi', charset='utf8')
@@ -46,6 +49,7 @@ if __name__=='__main__':
             sales_price = t_lines[3]
             product_dict[product_id] = 1
             insert_product(conn, product_id, sales_rank, label, sales_price)
+            
     for key in product_dict:
         r_list = select_review(conn, key)
         for r in r_list:
@@ -55,3 +59,5 @@ if __name__=='__main__':
             rating = r['rating']
             title = r['title']
             body = r['body']
+            help_score = r['help_score']
+            insert_review(conn, member_id, product_id, rating, title, body, date, help_score)
