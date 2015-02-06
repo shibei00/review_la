@@ -16,11 +16,12 @@ if __name__=='__main__':
     sql = 'update trip_advisor_2w_info set is_exist=1 where member_id=%s and product_id=%s'
     for line in f_lines:
         t_list = line.split('\t')
-        member_id = t_list[0]
-        product_id = t_list[1]
-        cur = conn.cursor()
-        cur.execute(sql, (member_id, product_id))
-        conn.commit()
+        if len(t_list) > 1:
+            member_id = t_list[0]
+            product_id = t_list[1]
+            cur = conn.cursor()
+            cur.execute(sql, (member_id, product_id))
+            conn.commit()
 
     sql2 = 'delete from trip_advisor_2w_info where is_exist=0'
     cur2 = conn.cursor()
