@@ -13,14 +13,15 @@ if __name__=='__main__':
     conn = MySQLdb.connect(host='seis10', user='bshi', passwd='20141031shib', db='bshi', charset='utf8')
     f_name = '/misc/projdata4/info_fil/bshi/Code/review_lda/trip_advisor_2w_raw_new.txt'
     f_lines = read_file(f_name)
-    sql = 'update trip_advisor_2w_info set is_exist=1 where member_id=%s and product_id=%s'
+    sql = 'update trip_advisor_2w_info set is_exist=1 where member_id=%s and product_id=%s and rating=%s'
     for line in f_lines:
         t_list = line.split('\t')
         if len(t_list) > 1:
             member_id = t_list[0]
             product_id = t_list[1]
+            rating = t_list[2]
             cur = conn.cursor()
-            cur.execute(sql, (member_id, product_id))
+            cur.execute(sql, (member_id, product_id, rating))
             conn.commit()
 
     sql2 = 'delete from trip_advisor_2w_info where is_exist=0'
