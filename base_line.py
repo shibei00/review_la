@@ -249,8 +249,8 @@ if __name__=='__main__':
     #pi_CS_non_2 = (1-mu_CS_non) * (mu_CS_non * (1 - mu_CS_non) / gema_CS_non - 1)
     #pi_CS_spam_1 = (mu_CS_spam) * (mu_CS_spam * (1 - mu_CS_spam) / gema_CS_spam - 1)
     #pi_CS_spam_2 = (1-mu_CS_spam) * (mu_CS_spam * (1 - mu_CS_spam) / gema_CS_spam - 1)
-    pi_CS_non_1 = 3.0
-    pi_CS_non_2 = 1.0
+    pi_CS_non_1 = 0.5
+    pi_CS_non_2 = 2
     pi_CS_spam_1 = 3.0
     pi_CS_spam_2 = 1.0
     print 'non_CS: %f, %f' % (pi_CS_non_1, pi_CS_non_2)
