@@ -38,7 +38,7 @@ def insert_review(conn, member_id, product_id, rating, title, body, date, help_s
 if __name__=='__main__':
     f_name = '/misc/projdata4/info_fil/bshi/Data/review/bing_liu/productInfoXML-reviewed-AudioCDs.txt'
     conn = MySQLdb.connect(host='seis10', user='bshi', passwd='20141031shib', db='bshi', charset='utf8')
-    f_lines = read_fine(f_name)
+    f_lines = read_file(f_name)
     product_dict = {}
     for line in f_lines:
         t_lines = [l.strip() for l in line.split('\t')]
