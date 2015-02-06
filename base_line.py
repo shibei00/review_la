@@ -29,7 +29,7 @@ def get_mean_variance(t_list):
         variance = sum((mean-value)**2 for value in t_list) / float(len(t_list))
         return mean, variance
         
-def get_review_list(conn, review_list, member_review_dict):
+def get_review_list(conn, review_list, member_review_dict, product_review_dict):
     sql = 'select * from ' + review_table
     try:
         cur = conn.cursor(MySQLdb.cursors.DictCursor)
@@ -38,12 +38,18 @@ def get_review_list(conn, review_list, member_review_dict):
         for r in rows:
             review_id = r['id']
             member_id = r['member_id']
+            product_id = r['product_id']
             review_list.append(review_id)
             if member_id in member_review_dict:
                 member_review_dict[member_id].append(int(review_id))
             else:
                 member_review_dict[member_id] = []
                 member_review_dict[member_id].append(int(review_id))
+            if product_id in product_review_dict:
+                product_review_dict[product_id].append(int(review_id))
+            else:
+                product_review_dict[product_id] = []
+                product_review_dict[product_id].append(int(review_id))
     except:
         traceback.print_exc()
 
@@ -58,7 +64,8 @@ if __name__=='__main__':
     get_member_list(conn, member_list)
     review_list = []
     member_review_dict = {}
-    get_review_list(conn, review_list, member_review_dict)
+    product_review_dict = {}
+    get_review_list(conn, review_list, member_review_dict, product_review_dict)
     review_label_list = [0,]
     for i in xrange(0, len(review_list)):
         t = random.random()
@@ -67,7 +74,7 @@ if __name__=='__main__':
         else:
             review_label_list.append(1)
     
-    n_max = 1000
+    n_max = 500
     n_m_non_dict = {}
     n_m_spam_dict = {}
     n_m_count= {}
@@ -436,7 +443,7 @@ if __name__=='__main__':
                     BST_list_spam.append(r_BST_dict[k])
                     RFR_list_spam.append(r_RFR_dict[k])
 
-        if i > 250:
+        if i > 2500:
             mu_CS_non, gema_CS_non = get_mean_variance(CS_list_non)
             mu_CS_spam, gema_CS_spam = get_mean_variance(CS_list_spam)
             print 'u_CS_non: %f, %f' %(mu_CS_non, gema_CS_non)
@@ -493,13 +500,29 @@ if __name__=='__main__':
             print 'spam_RFR: %f, %f' % (pi_RFR_spam_1, pi_RFR_spam_2)
             
     r_spam_score_dict = {}
+    member_content = ''
     for member in member_list:
         r_list = member_review_dict[member]
         r_count = len(r_list)
         spam_count = n_m_spam_dict[member]
         spam_score = float(spam_count) / float(r_count)
+        member_list = [member, spam_score, r_count]
+        member_content += '\t'.join(member_list) +'\t' +' '.join([str(x-1) for x in r_list]) + '\n'
         for r in r_list:
             r_spam_score_dict[r] = spam_score
+
+    product_content
+    for product in product_review_dict.keys():
+        r_list = product_review_dict[product]
+        r_count = len(r_list)
+        spam_count = 0
+        for r in r_list:
+            if review_label_list[r]==1:
+                spam_count += 1
+        spam_score = float(spam_count) / float(r_count)
+        product_list = [product, spam_score, r_count]
+        product_content += '\t'.join(member_list) +'\t' +' '.join([str(x-1) for x in r_list]) + '\n'
+        
             
     sorted_r_spam_score = sorted(r_spam_score_dict.items(), key=operator.itemgetter(1), reverse=True)
     for i in xrange(0, 3):
@@ -513,4 +536,6 @@ if __name__=='__main__':
         end_content = '\n'.join(end_t_list)
         save_file(str(i) + '_1.txt', start_content)
         save_file(str(i) + '_0.txt', end_content)
-    save_file('spamisity.txt', str(sorted_r_spam_score))
+
+    save_file('user_spam.txt', member_content)
+    save_file('product_spam.txt', product_content)
