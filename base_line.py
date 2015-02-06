@@ -74,7 +74,7 @@ if __name__=='__main__':
         else:
             review_label_list.append(1)
     
-    n_max = 500
+    n_max = 300
     n_m_non_dict = {}
     n_m_spam_dict = {}
     n_m_count= {}
