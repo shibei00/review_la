@@ -26,7 +26,7 @@ if __name__=='__main__':
                 r_body = ''
                 if len(info_list) > 7:
                     r_body = info_list[7]
-                if member_id in member_id_dict and date_obj:
+                if r_body and date_obj:
                     cur2 = conn.cursor()
                     m_sql2 = 'insert into review_info(member_id, product_id, date, rating, title, body, help_score) values(%s, %s, %s, %s, %s, %s, %s)'
                     cur2.execute(m_sql2, (member_id, product_id, date_obj, rating, r_title, r_body, help_fb_num))
