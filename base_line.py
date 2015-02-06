@@ -524,8 +524,7 @@ if __name__=='__main__':
                 spam_count += 1
                 spam_score = float(spam_count) / float(r_count)
         product_score_dict[product] = spam_score
-        product_list = [product, str(spam_score), str(r_count)]
-        product_content += '\t'.join(product_list) +'\t' +' '.join([str(x-1) for x in r_list]) + '\n'
+
         
     sorted_member_list = sorted(member_score_dict.items(), key=operator.itemgetter(1), reverse=True)
     sorted_product_list = sorted(product_score_dict.items(), key=operator.itemgetter(1), reverse=True)
@@ -548,8 +547,7 @@ if __name__=='__main__':
             if review_label_list[r]==1:
                 spam_count += 1
                 spam_score = float(spam_count) / float(r_count)
-        product_score_dict[product] = spam_score
-        product_list = [product, str(spam_score), str(r_count)]
+        product_list = [product, str(item[1]), str(r_count)]
         product_content += '\t'.join(product_list) +'\t' +' '.join([str(x-1) for x in r_list]) + '\n'
         
     sorted_r_spam_score = sorted(r_spam_score_dict.items(), key=operator.itemgetter(1), reverse=True)
