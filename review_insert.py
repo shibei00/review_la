@@ -10,13 +10,6 @@ if __name__=='__main__':
     conn = MySQLdb.connect(host='seis10', user='bshi', passwd='20141031shib', db='bshi', charset='utf8')
     member_id_dict = {}
     try:
-        cur = conn.cursor()
-        m_sql = 'select member_id from member_info'
-        cur.execute(m_sql)
-        rows = cur.fetchall()
-        for row in rows:
-            member_id_dict[row[0]] = 1
-        cur.close()
         for i in xrange(0, len(line_list)):
             info_list = [x.strip() for x in line_list[i].split('\t')]
             try:
@@ -37,8 +30,8 @@ if __name__=='__main__':
                     r_body = info_list[7]
                 if member_id in member_id_dict and date_obj:
                     cur2 = conn.cursor()
-                    m_sql2 = 'insert into review_info(member_id, product_id, date, rating, title, body) values(%s, %s, %s, %s, %s, %s)'
-                    cur2.execute(m_sql2, (member_id, product_id, date_obj, rating, r_title, r_body))
+                    m_sql2 = 'insert into review_info(member_id, product_id, date, rating, title, body, help_score) values(%s, %s, %s, %s, %s, %s, %s)'
+                    cur2.execute(m_sql2, (member_id, product_id, date_obj, rating, r_title, r_body, help_fb_num))
                     cur2.close()
                     conn.commit()
             except:
