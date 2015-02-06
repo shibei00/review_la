@@ -23,8 +23,6 @@ def select_review(conn, product_id):
     sql = 'select * from review_info where product_id=%s'
     cur = conn.cursor(MySQLdb.cursors.DictCursor)
     cur.execute(sql, (product_id,))
-    cur.commit()
-    conn.commit()
     r_list = cur.fetchall()
     return r_list
 
