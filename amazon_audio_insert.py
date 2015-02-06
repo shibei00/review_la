@@ -17,7 +17,6 @@ def insert_product(conn, product_id, sales_rank, label, sales_price):
     sql = 'insert into ' + product_table + '(product_id, sales_rank, label, sales_price) values(%s, %s, %s, %s)'
     cur = conn.cursor()
     cur.execute(sql, (product_id, sales_rank, label, sales_price))
-    cur.commit()
     conn.commit()
 
 def select_review(conn, product_id):
