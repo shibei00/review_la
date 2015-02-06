@@ -27,7 +27,7 @@ if __name__=='__main__':
             if member_id==t_list[0] and product_id==t_list[1]:
                 pass
             else:
-                print r[0]
+                print member_id, t_list[0], product_id, t_list[1], r[0]
                 break
     '''sql = 'update trip_advisor_2w_info set is_exist=1 where member_id=%s and product_id=%s and rating=%s and helpful_score=%s and DUP=%s and EXT=%s and DEV=%s and ETF=%s and RA=%s'
     for line in f_lines:
