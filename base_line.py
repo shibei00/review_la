@@ -152,24 +152,24 @@ if __name__=='__main__':
         r_member=cur2.fetchone()
         CS = r_member['CS']
         if CS == 0:
-            CS = 0.01
+            CS = 0.001
         if CS == 1:
-            CS = 0.99
+            CS = 0.999
         MNR = r_member['MNR']
         if MNR == 0:
-            MNR = 0.01
+            MNR = 0.001
         if MNR == 1:
-            MNR = 0.99
+            MNR = 0.999
         BST = r_member['BST']
         if BST == 0:
-            BST = 0.01
+            BST = 0.001
         if BST == 1:
-            BST = 0.99
+            BST = 0.999
         RFR = r_member['RFR']
         if RFR == 0:
-            RFR = 0.01
+            RFR = 0.001
         if RFR == 1:
-            RFR = 0.99
+            RFR = 0.999
         for r in r_list:
             sql = 'select * from ' + review_table + ' where id=%s'
             cur =  conn.cursor(MySQLdb.cursors.DictCursor)
