@@ -16,8 +16,6 @@ if __name__=='__main__':
                 member_id = info_list[0]
                 product_id = info_list[1]
                 date_str = info_list[2]
-                if date_str == '':
-                    print line_list[i]
                 date_obj = None
                 if date_str:
                     date_obj = datetime.datetime.strptime(date_str, '%B %d, %Y')
