@@ -511,7 +511,7 @@ if __name__=='__main__':
         for r in r_list:
             r_spam_score_dict[r] = spam_score
 
-    product_content
+    product_content = ''
     for product in product_review_dict.keys():
         r_list = product_review_dict[product]
         r_count = len(r_list)
