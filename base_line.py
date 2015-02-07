@@ -532,8 +532,7 @@ if __name__=='__main__':
         r_count = len(r_list)
         spam_count = n_m_spam_dict[member]
         spam_score = float(spam_count) / float(r_count)
-        member_score_dict[member] = spam_score
-        member_list = [member, str(spam_score), str(r_count)]
+        member_list = [member, str(spam_score), str(spam_count), str(r_count)]
         member_content += '\t'.join(member_list) +'\t' +' '.join([str(x-1) for x in r_list]) + '\n'
         
     for item in sorted_product_list:
