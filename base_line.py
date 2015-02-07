@@ -74,7 +74,7 @@ if __name__=='__main__':
         else:
             review_label_list.append(1)
     
-    n_max = 300
+    n_max = 1
     n_m_non_dict = {}
     n_m_spam_dict = {}
     n_m_count= {}
@@ -232,7 +232,6 @@ if __name__=='__main__':
                 RFR_list_non.append(RFR)
                     
         n_m_non_dict[member] = non_count
-        print non_count
         n_m_spam_dict[member] = spam_count
         n_m_count[member] = n_count
 
