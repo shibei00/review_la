@@ -74,7 +74,7 @@ if __name__=='__main__':
         else:
             review_label_list.append(1)
     
-    n_max = 0
+    n_max = 300
     n_m_non_dict = {}
     n_m_spam_dict = {}
     n_m_count= {}
@@ -401,10 +401,10 @@ if __name__=='__main__':
                 td_RFR_non = pow(r_RFR_dict[k], pi_RFR_non_1-1) * pow(1-r_RFR_dict[k], pi_RFR_non_2-1)
                 td_RFR_spam = pow(r_RFR_dict[k], pi_RFR_spam_1-1) * pow(1-r_RFR_dict[k], pi_RFR_spam_2-1)
                 #prob_non = first_factor_non *  sf_DUP_non * sf_EXT_non * sf_DEV_non * sf_ETF_non * sf_RA_non * td_CS_non * td_MNR_non * td_BST_non * td_RFR_non
-                prob_non = first_factor_non
+                prob_non = sf_DUP_non * sf_EXT_non * sf_DEV_non * sf_ETF_non * sf_RA_non
                 #print first_factor_non, sf_DUP_non, sf_EXT_non, sf_DEV_non, sf_ETF_non, sf_RA_non, td_CS_non, td_MNR_non, td_BST_non, td_RFR_non
                 #prob_spam = first_factor_spam * sf_DUP_spam * sf_EXT_spam * sf_DEV_spam * sf_ETF_spam * sf_RA_spam * td_CS_spam * td_MNR_spam *  td_BST_spam * td_RFR_spam
-                prob_spam = first_factor_spam
+                prob_spam = sf_DUP_spam * sf_EXT_spam * sf_DEV_spam * sf_ETF_spam * sf_RA_spam
                 #print first_factor_spam, sf_DUP_spam, sf_EXT_spam, sf_DEV_spam, sf_ETF_spam, sf_RA_spam, td_CS_spam, td_MNR_spam, td_BST_spam, td_RFR_spam
                 if prob_non > prob_spam:
                     review_label_list[k] = 0
