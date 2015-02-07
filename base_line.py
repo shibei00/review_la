@@ -339,8 +339,8 @@ if __name__=='__main__':
                         r_spam_is_ETF_count -= 1
                     if r_RA_dict[k]==1:
                         r_spam_is_RA_count -= 1
-                first_factor_non= (t_non_count + 1) / float(n_m_count[j] -1 + 2)
-                first_factor_spam = (t_spam_count + 1) / float(n_m_count[j] - 1 + 2)
+                first_factor_non= (n_m_non_dict[j] + 50) / float(n_m_count[j] -1 + 100)
+                first_factor_spam = (n_m_spam_dict[j] + 50) / float(n_m_count[j] - 1 + 100)
                 if review_label_list[k] == 0:
                     t_non_count += 1
                 else:
