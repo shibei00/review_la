@@ -4,9 +4,9 @@ import traceback
 import random
 import operator
 
-review_table = 'trip_advisor_2w_info'
-member_table = 'trip_advisor_2w_member'
-product_table = 'trip_advisor_2w_product'
+review_table = 'yelp_2w_info'
+member_table = 'yelp_2w_member'
+product_table = 'yelp_2w_product'
 
 def get_member_list(conn, member_list):
     sql = 'select * from ' + member_table
