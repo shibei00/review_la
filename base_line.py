@@ -470,18 +470,18 @@ if __name__=='__main__':
             print 'u_RFR_non: %f, %f' %(mu_RFR_non, gema_RFR_non)
             print 'u_RFR_spam: %f, %f' %(mu_RFR_spam, gema_RFR_spam)
             
-            if (mu_CS_non * (1 - mu_CS_non) / gema_CS_non - 1) < 10 or True:
+            if (mu_CS_non * (1 - mu_CS_non) / gema_CS_non - 1) < 10:
                 pi_CS_non_1 = mu_CS_non * (mu_CS_non * (1 - mu_CS_non) / gema_CS_non - 1)
                 pi_CS_non_2 = (1-mu_CS_non) * (mu_CS_non * (1 - mu_CS_non) / gema_CS_non - 1)
-            if (mu_CS_spam * (1 - mu_CS_spam) / gema_CS_spam - 1) < 10 or True:
+            if (mu_CS_spam * (1 - mu_CS_spam) / gema_CS_spam - 1) < 10:
                 pi_CS_spam_1 = (mu_CS_spam) * (mu_CS_spam * (1 - mu_CS_spam) / gema_CS_spam - 1)
                 pi_CS_spam_2 = (1-mu_CS_spam) * (mu_CS_spam * (1 - mu_CS_spam) / gema_CS_spam - 1)
                 
-            if (mu_MNR_non * (1 - mu_MNR_non) / gema_MNR_non - 1) < 10 or True:
+            if (mu_MNR_non * (1 - mu_MNR_non) / gema_MNR_non - 1) < 10:
                 pi_MNR_non_1 = mu_MNR_non * (mu_MNR_non * (1 - mu_MNR_non) / gema_MNR_non - 1)
                 pi_MNR_non_2 = (1-mu_MNR_non) * (mu_MNR_non * (1 - mu_MNR_non) / gema_MNR_non - 1)
                 
-            if (mu_MNR_spam * (1 - mu_MNR_spam) / gema_MNR_spam - 1) < 10 or True:
+            if (mu_MNR_spam * (1 - mu_MNR_spam) / gema_MNR_spam - 1) < 10:
                 pi_MNR_spam_1 = (mu_MNR_spam) * (mu_MNR_spam * (1 - mu_MNR_spam) / gema_MNR_spam - 1)
                 pi_MNR_spam_2 = (1-mu_MNR_spam) * (mu_MNR_spam * (1 - mu_MNR_spam) / gema_MNR_spam - 1)
 
