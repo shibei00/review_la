@@ -308,9 +308,12 @@ if __name__=='__main__':
         RFR_list_non = []
         RFR_list_spam = []
         for j in member_list:
+            t_non_count = n_m_non_dict[j]
+            t_spam_count = n_m_spam_dict[j]
             for k in member_review_dict[j]:
                 if review_label_list[k]==0:
                     n_m_non_dict[j] -= 1
+                    t_non_count -= 1
                     non_total_count -= 1
                     if r_DUP_dict[k]==1:
                         r_non_is_DUP_count -= 1
@@ -324,6 +327,7 @@ if __name__=='__main__':
                         r_non_is_RA_count -= 1
                 else:
                     spam_total_count -= 1
+                    t_spam_count = n_m_spam_dict[j]
                     n_m_spam_dict[j] -=1
                     if r_DUP_dict[k]==1:
                         r_spam_is_DUP_count -= 1
@@ -335,8 +339,8 @@ if __name__=='__main__':
                         r_spam_is_ETF_count -= 1
                     if r_RA_dict[k]==1:
                         r_spam_is_RA_count -= 1
-                first_factor_non= (n_m_non_dict[j] + 0.1) / float(n_m_count[j] -1 + 0.2)
-                first_factor_spam = (n_m_spam_dict[j] + 0.1) / float(n_m_count[j] - 1 + 0.2)
+                first_factor_non= (t_non_count + 0.1) / float(n_m_count[j] -1 + 0.2)
+                first_factor_spam = (t_spam_count + 0.1) / float(n_m_count[j] - 1 + 0.2)
                 print first_factor_non, first_factor_spam, n_m_non_dict[j], n_m_spam_dict[j], n_m_count[j]
                 sf_DUP_non=0.0
                 if r_DUP_dict[k]==1:
