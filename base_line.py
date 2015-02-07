@@ -339,8 +339,8 @@ if __name__=='__main__':
                         r_spam_is_ETF_count -= 1
                     if r_RA_dict[k]==1:
                         r_spam_is_RA_count -= 1
-                first_factor_non= (t_non_count + 0.1) / float(n_m_count[j] -1 + 0.2)
-                first_factor_spam = (t_spam_count + 0.1) / float(n_m_count[j] - 1 + 0.2)
+                first_factor_non= (t_non_count + 1) / float(n_m_count[j] -1 + 2)
+                first_factor_spam = (t_spam_count + 1) / float(n_m_count[j] - 1 + 2)
                 print first_factor_non, first_factor_spam, n_m_non_dict[j], n_m_spam_dict[j], n_m_count[j]
                 sf_DUP_non=0.0
                 if r_DUP_dict[k]==1:
