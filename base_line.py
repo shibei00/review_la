@@ -74,7 +74,7 @@ if __name__=='__main__':
         else:
             review_label_list.append(1)
     
-    n_max = 1
+    n_max = 300
     n_m_non_dict = {}
     n_m_spam_dict = {}
     n_m_count= {}
@@ -345,7 +345,7 @@ if __name__=='__main__':
                     t_non_count += 1
                 else:
                     t_spam_count += 1
-                print first_factor_non, first_factor_spam, t_non_count, t_spam_count, n_m_count[j]
+                #print first_factor_non, first_factor_spam, t_non_count, t_spam_count, n_m_count[j]
                 sf_DUP_non=0.0
                 if r_DUP_dict[k]==1:
                     sf_DUP_non = (r_non_is_DUP_count + 1) / float(non_total_count + 2)
