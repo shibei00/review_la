@@ -621,7 +621,7 @@ if __name__=='__main__':
     insert_into_members(conn)
     print 'insert member completed'
     #preprocess body of the review
-    preprocess(conn)
+    #preprocess(conn)
     print 'preprocess completed.'
     #extract the feature of CS
     extract_CS(conn)
@@ -668,5 +668,5 @@ if __name__=='__main__':
     print 'J completed'
     extract_is_burst(conn)
     print 'burst completed'
-    output_txt(conn, 'trip_advisor_2w')
+    output_txt(conn, 'yelp_2w_new')
     print str_process('I have eaten!. Nice to meet you.')
