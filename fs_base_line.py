@@ -80,7 +80,7 @@ if __name__=='__main__':
             p_RFR = row['p_RFR']
             sum = p_CS + p_MNR + p_BST + p_RFR
             product_score_dict[product_id] = sum
-        sorted_review_score_list = sorted(reviews_score_dict.items(), key=operator.itemgetter(1), reverse=True)
+        sorted_review_score_list = sorted(review_score_dict.items(), key=operator.itemgetter(1), reverse=True)
         sorted_member_score_list = sorted(member_score_dict.items(), key=operator.itemgetter(1), reverse=True)
         sorted_product_score_list = sorted(product_score_dict.items(), key=operator.itemgetter(1), reverse=True)
         for i in xrange(0, 3):
