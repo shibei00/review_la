@@ -14,6 +14,11 @@ def read_file(file_name):
     lines = f.readlines()
     return lines
 
+def save_file(file_name, content):
+    f = open(file_name, 'w')
+    f.write(content)
+    f.close()
+    
 def get_review_list(conn, member_review_dict, product_review_dict):
     sql = 'select * from ' + review_table
     try:
