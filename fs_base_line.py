@@ -5,8 +5,8 @@ import json
 import datetime
 
 review_table = 'yelp_2w_info'
-member_table = 'member_2w_info'
-product_table = 'product_2w_info'
+member_table = 'yelp_2w_member'
+product_table = 'yelp_2w_product'
 
 def read_file(file_name):
     f = open(file_name)
