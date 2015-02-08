@@ -3,6 +3,7 @@ import MySQLdb
 import traceback
 import json
 import datetime
+import operator
 
 review_table = 'yelp_2w_info'
 member_table = 'yelp_2w_member'
