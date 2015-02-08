@@ -17,7 +17,7 @@ if __name__=='__main__':
     cur = conn.cursor()
     cur.execute(sql)
     rows = cur.fetchall()
-    for i in xrange(0, len(f_lines)):
+    '''for i in xrange(0, len(f_lines)):
         if i % 2 == 0:
             j = i / 2
             r = rows[j]
@@ -28,7 +28,7 @@ if __name__=='__main__':
                 pass
             else:
                 print member_id, t_list[0], product_id, t_list[1], r[0]
-                break
+                break'''
     '''sql = 'update trip_advisor_2w_info set is_exist=1 where member_id=%s and product_id=%s and rating=%s and helpful_score=%s and DUP=%s and EXT=%s and DEV=%s and ETF=%s and RA=%s'
     for line in f_lines:
         t_list = line.split('\t')
@@ -51,12 +51,12 @@ if __name__=='__main__':
     cur2.execute(sql2)
     conn.commit()'''
 
-    '''cur = conn.cursor()
-    sql5 = 'select * from trip_advisor_2w_info order by id asc'
-    sql6 = 'update trip_advisor_2w_info set id = %s where id = %s'
+    cur = conn.cursor()
+    sql5 = 'select * from yelp_2w_info order by id asc'
+    sql6 = 'update yelp_2w_info set id = %s where id = %s'
     cur.execute(sql5)
     rows = cur.fetchall()
     for i in xrange(0, len(rows)):
         id = rows[i][0]
         cur.execute(sql6, (i+1, id))
-    conn.commit()'''
+    conn.commit()
