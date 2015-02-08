@@ -23,7 +23,6 @@ def get_review_list(conn, member_review_dict, product_review_dict):
             review_id = r['id']-1
             member_id = r['member_id']
             product_id = r['product_id']
-            review_list.append(review_id)
             if member_id in member_review_dict:
                 member_review_dict[member_id].append(int(review_id))
             else:
