@@ -48,7 +48,7 @@ if __name__=='__main__':
     try:
         get_review_list(conn, member_review_dict, product_review_dict)
         sql_1 = 'select * from ' + review_table
-        cur.execute(sql)
+        cur.execute(sql_1)
         rows = cur.fetchall()
         for row in rows:
             id = row['id']
