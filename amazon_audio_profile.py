@@ -58,7 +58,11 @@ def output_txt(conn, file_name, all_member_info, all_product_info):
         cur = conn.cursor(MySQLdb.cursors.DictCursor)
         cur.execute(sql)
         rows = cur.fetchall()
+        int i = 0
         for r in rows:
+            i += 1
+            if i % 100==0:
+                print i
             sql2 = 'select * from ' + member_table +' where member_id=%s'
             sql3 = 'select * from ' + product_table + ' where product_id=%s'
             member_id = r['member_id'].encode('utf-8')
