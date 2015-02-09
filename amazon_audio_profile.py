@@ -85,6 +85,7 @@ def output_txt(conn, file_name, all_member_info, all_product_info):
             else:
                 content_raw += member_id + ' No Contents\n'
             if product_id in all_product_info:
+                print type(all_product_info[product_id].strip()), all_product_info[product_id]
                 content_raw += all_product_info[product_id].strip().encode('utf-8') + '\n'
             else:
                 content_raw += product_id + ' No Contents\n'
