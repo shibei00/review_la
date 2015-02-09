@@ -63,10 +63,10 @@ def output_txt(conn, file_name, all_member_info, all_product_info):
             p_BST = r_product['p_BST']
             p_RFR = r_product['p_RFR']
             t_list = [member_id, product_id, rating, helpful_score, DUP, EXT, DEV, ETF, RA, CS, MNR, BST, RFR, is_J, is_burst, p_CS, p_MNR, p_BST, p_RFR]
-            content_raw = '\t'.join(str(x) for x in t_list)
-            content_raw += '\n' + raw_body.strip() + '\n'
-            content_raw += all_member_info[member_id] + '\n'
-            content_raw += all_product_info[product_id] + '\n'
+            content_raw = '\t'.join(str(x) for x in t_list) + '\n'
+            content_raw += raw_body.strip() + '\n'
+            content_raw += all_member_info[member_id].strip() + '\n'
+            content_raw += all_product_info[product_id].strip() + '\n'
             if type(content_raw) == unicode:
                 content_raw = content_raw.encode('utf-8')
             else:
