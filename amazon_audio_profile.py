@@ -21,7 +21,8 @@ def read_member_product_info(all_member_info, all_product_info):
         t_lines = [l.strip() for l in t_content.split('\t')]
         if len(t_lines) > 6:
             member_id = t_lines[5]
-            all_member_info[member_id] = content
+            print member_id
+            all_member_info[str(member_id)] = content
 
     lines = read_file('/misc/projdata4/info_fil/bshi/Data/review/bing_liu/productInfoXML-reviewed-AudioCDs.txt')
     t_content = ''
