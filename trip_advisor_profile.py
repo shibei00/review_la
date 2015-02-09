@@ -1,6 +1,7 @@
 #-*- coding:utf-8 -*-
 import MySQLdb
 import json
+import traceback
 
 review_table = 'trip_advisor_2w_info'
 member_table = 'trip_advisor_2w_member'
