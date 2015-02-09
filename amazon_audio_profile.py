@@ -83,6 +83,7 @@ def output_txt(conn, file_name, all_member_info, all_product_info):
                     content_raw += all_member_info[member_id].strip() + '\n'
                 except UnicodeDecodeError:
                 content_raw += product_id + '\tDecode Error!' + '\n' '''
+                print member_id
                 content_raw += all_member_info[member_id].strip() + '\n'
             else:
                 content_raw += member_id + ' No Contents\n'
