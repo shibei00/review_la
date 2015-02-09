@@ -75,7 +75,6 @@ def output_txt(conn, file_name):
     except:
         traceback.print_exc()
     raw_f.close()
-    post_f.close()
 
 if __name__=='__main__':
     conn = MySQLdb.connect(host='seis10.se.cuhk.edu.hk', port=3306, user='bshi', passwd='20141031shib', db='bshi', charset='utf8')
