@@ -58,7 +58,7 @@ def output_txt(conn, file_name, all_member_info, all_product_info):
         cur = conn.cursor(MySQLdb.cursors.DictCursor)
         cur.execute(sql)
         rows = cur.fetchall()
-        int i = 0
+        i = 0
         for r in rows:
             i += 1
             if i % 100==0:
