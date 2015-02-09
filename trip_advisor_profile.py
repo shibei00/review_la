@@ -37,8 +37,8 @@ def output_txt(conn, file_name):
         for r in rows:
             sql2 = 'select * from ' + member_table +' where member_id=%s'
             sql3 = 'select * from ' + product_table + ' where product_id=%s'
-            member_id = r['member_id']
-            product_id = r['product_id']
+            member_id = r['member_id'].encode('utf-8')
+            product_id = r['product_id'].encode('utf-8')
             id = r['id']
             raw_body = r['body'].replace('\n', ' ').replace('\r', '')
             post_body= r['post_body'].replace('\n', ' ').replace('\r', '')
