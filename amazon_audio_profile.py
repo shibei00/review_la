@@ -36,7 +36,6 @@ def read_member_product_info(all_member_info, all_product_info):
         else:
             t_content += '\t' + line.strip()
             if product_id:
-                print product_id
                 all_product_info[product_id] = t_content
                 t_content = ''
                 product_id = ''
