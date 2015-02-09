@@ -3,10 +3,10 @@ import MySQLdb
 import json
 import traceback
 
-review_table = 'amazon_audio_2w_info'
-member_table = 'amazon_audio_2w_member'
-product_table = 'amazon_audio_2w_product'
-output_name = 'amazon_audio_2w_raw_profile.txt'
+review_table = 'amazon_audio_3w_info'
+member_table = 'amazon_audio_3w_member'
+product_table = 'amazon_audio_3w_product'
+output_name = 'amazon_audio_3w_raw_profile.txt'
 
 def read_file(file_name):
     f = open(file_name)
@@ -19,7 +19,14 @@ def read_member_product_info(all_member_info, all_product_info):
         content = line.strip()
         t_lines = [l.strip() for l in line.split('\t')]
         if len(t_lines) > 6:
+            username = t_lines[0]
+            member_rank = t_lines[1]
+            birthday = t_lines[2]
+            location = t_lines[3]
+            name = t_lines[4]
             member_id = t_lines[5]
+            state = t_lines[6]
+            content = 'usename:' + username + '\t' + 'member_rank:' + member_rank + '\t' + 'birthday:' + birthday + '\t' + 'location:' + location + '\t' + 'name:' + name + '\t' + 'member_id:' + member_id + '\t' + 'state:' + state
             all_member_info[str(member_id)] = content
 
     lines = read_file('/misc/projdata4/info_fil/bshi/Data/review/bing_liu/productInfoXML-reviewed-AudioCDs.txt')
@@ -29,7 +36,10 @@ def read_member_product_info(all_member_info, all_product_info):
         t_lines = [l.strip() for l in line.split('\t')]
         if len(t_lines)==4:
             product_id = t_lines[0]
-            t_content += line.strip()
+            sales_rank = t_lines[1]
+            label = t_lines[2]
+            sales_price = t_lines[3]
+            t_content += 'product_id:' + product_id + '\t' + 'sales_rank:' + sales_rank + '\t' + 'label:' + label + '\t' + 'sales_price:' + sales_price
         elif len(t_lines)==1:
             t_content = ''
         else:
