@@ -14,18 +14,14 @@ def read_file(file_name):
     return lines
 
 def read_member_product_info(all_member_info, all_product_info):
-    lines = read_file('/misc/projdata4/info_fil/bshi/Data/review/bing_liu/amazon-member-shortSummary.txt')
+    lines = read_file('/misc/projdata4/info_fil/bshi/Data/review/bing_liu/amazon-memberinfo-locations.txt')
     t_content = ''
     for line in lines:
         content = line.strip()
-        if content == 'MEMBER INFO':
-            t_lines = [l.strip() for l in t_content.split('\t')]
-            if len(t_lines) > 3:
-                member_id = t_lines[2]
-                all_member_info[member_id] = t_content
-                t_content = ''
-        else:
-            t_content += content + ' '
+        t_lines = [l.strip() for l in t_content.split('\t')]
+        if len(t_lines) > 6:
+            member_id = t_lines[5]
+            all_member_info[member_id] = content
 
     lines = read_file('/misc/projdata4/info_fil/bshi/Data/review/bing_liu/productInfoXML-reviewed-AudioCDs.txt')
     t_content = ''
@@ -40,6 +36,7 @@ def read_member_product_info(all_member_info, all_product_info):
         else:
             t_content += '\t' + line.strip()
             if product_id:
+                print product_id
                 all_product_info[product_id] = t_content
                 t_content = ''
         
