@@ -51,6 +51,8 @@ def read_member_product_info(all_member_info, all_product_info):
         
 def output_txt(conn, file_name, all_member_info, all_product_info):
     raw_f = open(file_name, 'w')
+    raw_f.close()
+    raw_f = open(file_name, 'a')
     try:
         sql = 'select * from ' + review_table
         cur = conn.cursor(MySQLdb.cursors.DictCursor)
@@ -107,6 +109,7 @@ def output_txt(conn, file_name, all_member_info, all_product_info):
             else:
                 content_raw = content_raw.decode('ascii').encode('utf-8')
             raw_f.write(content_raw)
+            content_raw = ''
     except:
         traceback.print_exc()
     raw_f.close()
