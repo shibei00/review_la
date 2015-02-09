@@ -26,10 +26,7 @@ def read_member_product_info(all_member_info, all_product_info):
                 t_content = ''
         else:
             t_content += content + ' '
-        json_data = json.loads(line)
-        author = json_data['author']
-        author_id = author['id']
-        all_member_info[str(author_id)] = str(author)
+
     lines = read_file('/misc/projdata4/info_fil/bshi/Data/review/bing_liu/productInfoXML-reviewed-AudioCDs.txt')
     t_content = ''
     for line in lines:
