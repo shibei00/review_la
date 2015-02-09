@@ -19,12 +19,12 @@ def read_member_product_info(all_member_info, all_product_info):
         json_data = json.loads(line)
         author = json_data['author']
         author_id = author['id']
-        all_member_info[author_id] = str(author)
+        all_member_info[str(author_id)] = str(author)
     lines = read_file('/misc/projdata4/info_fil/bshi/Data/review/tripadvisor_jiweili/offering.txt')
     for line in lines:
         json_data = json.loads(line)
         product_id = json_data['id']
-        all_product_info[product_id] = line
+        all_product_info[str(product_id)] = line
         
 def output_txt(conn, file_name, all_member_info, all_product_info):
     raw_f = open(file_name, 'w')
@@ -66,8 +66,6 @@ def output_txt(conn, file_name, all_member_info, all_product_info):
             content_raw = '\t'.join(str(x) for x in t_list)
             content_raw += '\n' + raw_body.strip() + '\n'
             content_raw += all_member_info[member_id] + '\n'
-            print type(all_product_info.keys()[0]), type(product_id)
-            
             content_raw += all_product_info[product_id] + '\n'
             if type(content_raw) == unicode:
                 content_raw = content_raw.encode('utf-8')
