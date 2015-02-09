@@ -34,11 +34,11 @@ def read_member_product_info(all_member_info, all_product_info):
         t_lines = [l.strip() for l in line.split('\t')]
         if len(t_lines)==4:
             product_id = t_lines[0]
-            t_content += t_lines
+            t_content += line.strip()
         elif len(t_lines)==1:
             t_content = ''
         else:
-            t_content += '\t' + line
+            t_content += '\t' + line.strip()
             if product_id:
                 all_product_info[product_id] = t_content
                 t_content = ''
