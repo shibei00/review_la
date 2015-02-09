@@ -24,10 +24,9 @@ def read_member_product_info(all_member_info, all_product_info):
     for line in lines:
         json_data = json.loads(line)
         product_id = json_data['id']
-        print product_id
         all_product_info[product_id] = line
         
-def output_txt(conn, file_name):
+def output_txt(conn, file_name, all_member_info, all_product_info):
     raw_f = open(file_name, 'w')
     try:
         sql = 'select * from ' + review_table
@@ -82,4 +81,4 @@ if __name__=='__main__':
     all_member_info = {}
     all_product_info = {}
     read_member_product_info(all_member_info, all_product_info)
-    output_txt(conn, output_name)
+    output_txt(conn, output_name, all_member_info, all_product_info)
