@@ -25,8 +25,8 @@ def read_member_product_info(all_member_info, all_product_info):
 
     lines = read_file('/misc/projdata4/info_fil/bshi/Data/review/bing_liu/productInfoXML-reviewed-AudioCDs.txt')
     t_content = ''
+    product_id = ''
     for line in lines:
-        product_id = ''
         t_lines = [l.strip() for l in line.split('\t')]
         if len(t_lines)==4:
             product_id = t_lines[0]
@@ -39,6 +39,7 @@ def read_member_product_info(all_member_info, all_product_info):
                 print product_id
                 all_product_info[product_id] = t_content
                 t_content = ''
+                product_id = ''
         
 def output_txt(conn, file_name, all_member_info, all_product_info):
     raw_f = open(file_name, 'w')
