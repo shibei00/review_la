@@ -33,7 +33,6 @@ def output_txt(conn, file_name, all_member_info, all_product_info):
         cur = conn.cursor(MySQLdb.cursors.DictCursor)
         cur.execute(sql)
         rows = cur.fetchall()
-        print all_product_info
         for r in rows:
             sql2 = 'select * from ' + member_table +' where member_id=%s'
             sql3 = 'select * from ' + product_table + ' where product_id=%s'
@@ -67,6 +66,8 @@ def output_txt(conn, file_name, all_member_info, all_product_info):
             content_raw = '\t'.join(str(x) for x in t_list)
             content_raw += '\n' + raw_body.strip() + '\n'
             content_raw += all_member_info[member_id] + '\n'
+            print type(all_product_info.keys()[0]), type(product_id)
+            
             content_raw += all_product_info[product_id] + '\n'
             if type(content_raw) == unicode:
                 content_raw = content_raw.encode('utf-8')
