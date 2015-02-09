@@ -24,6 +24,7 @@ def read_member_product_info(all_member_info, all_product_info):
     for line in lines:
         json_data = json.loads(line)
         product_id = json_data['id']
+        print product_id
         all_product_info[product_id] = line
         
 def output_txt(conn, file_name):
