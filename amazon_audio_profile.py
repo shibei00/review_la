@@ -86,7 +86,10 @@ def output_txt(conn, file_name, all_member_info, all_product_info):
                 content_raw += member_id + ' No Contents\n'
             if product_id in all_product_info:
                 print product_id
-                content_raw += all_product_info[product_id].strip() + '\n'
+                try:
+                    content_raw += all_product_info[product_id].strip() + '\n'
+                except UnicodeDecodeError:
+                    content_raw += product_id + '\tDecode Error!' + '\n'
             else:
                 content_raw += product_id + ' No Contents\n'
             if type(content_raw) == unicode:
