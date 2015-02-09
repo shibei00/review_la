@@ -81,4 +81,4 @@ if __name__=='__main__':
     all_member_info = {}
     all_product_info = {}
     read_member_product_info(all_member_info, all_product_info)
-    output_txt(conn, f_name)
+    output_txt(conn, output_name)
